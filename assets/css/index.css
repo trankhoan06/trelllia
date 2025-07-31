@@ -1,0 +1,1231 @@
+/* header */
+.header_icon_lg{
+    width: 10rem;
+}
+.header{
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.header_nav{
+    display: flex;
+    gap: 6rem;
+}
+.haeder_logo{
+    width: 25rem;
+}
+.header_inner{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 7rem;
+    padding-right: 15rem;
+    padding-top: 3.5rem;
+}
+.header_nav_item{
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+@media screen and (max-width:991px) {
+    .header_inner{
+    padding-left: 3rem;
+    padding-right: 8rem;
+    padding-top: 3rem;
+    }
+    .haeder_logo {
+        width: 20rem;
+    }
+    .header_icon_lg{
+        width: 8rem;
+    }
+    .header_nav{
+        display: none;
+    }
+}
+@media screen and (max-width:767px){
+.haeder_logo {
+        width: 13rem;
+    }
+}
+/* hero */
+.cove_hero_slide_item{
+    position: relative;
+}
+.cove_hero_overlay{
+    position: absolute;
+    inset: 0 0 50%;
+    background: linear-gradient(to bottom, #46301a50 0%, #46301a20 25%, #46301A00 100%);
+    z-index: 5;
+    pointer-events: none;
+}
+.cove_hero_slide_item_txt{
+    font-family: "1FTV VIP Ramole";
+    position: absolute;
+    color: #fff;
+    &.left{
+        left: 31.1rem;
+        top: 12.4rem;
+    }
+    &.right{
+        top: 13.5rem;
+        right: 13.9rem;
+    }
+}
+.cove_hero{
+    height: 100vh;
+}
+.cove_hero_inner{
+    height: 100%;
+}
+.swiper-pagination-bullet{
+    background-color: #E9DCB8;
+    opacity: .7;
+}
+.swiper-pagination-bullet-active{
+   opacity: 1; 
+}
+@media screen and (max-width:991px) {
+    .cove_hero_slide_item_txt{
+        &.right{
+            top: 11.5rem;
+            right: 2.1rem;
+        } 
+        &.left{
+            top: 35.5rem;
+            left: 2.1rem;
+        }
+        span{
+            font-size: 7rem;
+        }
+    }
+}
+@media screen and (max-width:767px){
+    .cove_hero_slide_item_txt{
+        display: none;
+    }
+    .cove_hero{
+        height: auto;
+        margin-bottom: -.5rem;
+    }
+}
+/* cove_model */
+.cove_model{
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background-color: #0028188e;
+    display: none;
+    &.active{
+        display: block;
+    }
+    
+}
+.cove_model_inner{
+    background: url(/assets/img/bg_model.webp) no-repeat top;
+    background-size: 100% 100%;
+    display: flex;
+    padding-left: 27.2rem;
+    padding-right: 17rem;
+    justify-content: space-between;
+    padding-top: 6rem;
+    max-width: 120rem;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.cove_model_list{
+    max-width: 22.8rem;
+    .cove_model_list_img:first-child{
+        margin-bottom: .8rem;
+    }
+}
+.cove_model_form{
+    max-width: 39.5rem;
+}
+.cove_model_form_inner{
+    width: 100%;
+    input{
+        width: 100%;
+        background-color: transparent;
+        border: 0;
+        border-bottom: 2px solid #433E39;
+        margin-bottom: 3rem;
+        padding-block: 1.5rem .5rem;
+        &::placeholder{
+            font-family: 'Montserrat';
+            font-size: 2rem;
+            line-height: 3rem;
+            color: #555;
+        }
+    }
+}
+.cove_model_form_title{
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+.cove_model_form_ggmap, .cove_model_form_submit{
+    color: #fff;
+    background-color: #C09C6B;
+    border: none;
+    font-weight: 600;
+    line-height: 4.5rem;
+    padding-inline: 5.5rem;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-family: 'Montserrat';
+    margin-bottom: 3rem;
+    display: block;
+    text-decoration: none;
+    margin-inline: auto;
+}
+.cove_model_form_tel{
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.cove_model_form_subtitle{
+    font-weight: 600;
+    margin-bottom: .5rem;
+}
+.cove_model_form_location{
+    margin-bottom: 2rem;
+}
+.cove_model_close{
+font-size: 3.2rem;
+font-family: 'Times New Roman';
+position: absolute;
+right: 0;
+top: 0;
+padding: 2.5rem 3.5rem;
+color: #B6966F;
+}
+@media screen and (max-width:991px) {
+}
+/*  inspiration */
+.cove_inspiration_logo{
+    width: 25rem;
+    padding-top: 4rem;
+    position: relative;
+    z-index: 5;
+    margin-left: 7rem;
+}
+.cove_inspiration_inner{
+    display: flex;
+    justify-content: space-between;
+    margin: 13.8rem 32.8rem 0 11.7rem;
+}
+.cove_inspiration_info{
+    max-width: 55rem;
+    padding-top: 9.5rem;
+}
+.cove_inspiration_list{
+    max-width: 65rem;
+}
+.cove_inspiration_info_title{
+    margin-bottom: 2.5rem;
+}
+.cove_inspiration_info_des{
+    margin-bottom: 1rem;
+}
+.cove_inspiration{
+    background: url(/assets/img/bg_inspirationion.png) no-repeat top;
+    background-size: 100% 100%;
+}
+.cove_inspiration_list{
+    display: flex;
+}
+.cove_inspiration_list_img{
+    width: 32.3rem;
+}
+@media screen and (max-width:991px) {
+    .cove_inspiration_list_img{
+    width: 16.3rem;
+}
+.cove_inspiration_inner{
+    margin: 2rem 3rem;
+    gap: 1rem;
+}
+.cove_inspiration_logo{
+    width: 20rem;
+}
+.cove_inspiration_info{
+    padding-top: 0;
+}
+.cove_inspiration_list{
+    padding-top: 4rem;
+}
+.cove_inspiration_logo {
+    margin-left: 3rem;
+    padding-top: 4rem;
+}
+}
+@media screen and (max-width:767px){
+    .cove_inspiration_inner{
+        flex-direction: column;
+        margin-inline: 2rem;
+    }
+    .cove_inspiration_list{
+        padding-top: 0;
+        order: 1;
+        justify-content: space-around;
+    }
+    .cove_inspiration_info{
+        order: 2;
+    }
+    .cove_inspiration_list_img{
+    max-width: 17.5rem;
+}
+    .cove_inspiration_logo {
+        padding-top: 3rem;
+    }
+    .cove_inspiration_info_title{
+        text-align: center;
+    }
+    .cove_inspiration_logo{
+    width: 13rem;
+}
+}
+/* characteristic */
+
+.cove_characteristic *{
+    color: #fff;
+}
+.cove_characteristic{
+    background: url(/assets/img/bg_characteristic.webp) top no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+.cove_characteristic_overlay{
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-color: #45321f45;
+}
+.cove_characteristic_inner{
+    margin-left: 26rem;
+    display: flex   ;
+    gap: 15rem;
+    margin-top: 11.2rem;
+}
+.cove_characteristic_list_item_img_wrap{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cove_characteristic_list_item_img{
+    width: 4.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cove_characteristic_list_item{
+    display: flex;
+    align-items: center;
+    margin-bottom: 11.1rem;
+    position: relative;
+    z-index: 2;
+}
+.cove_characteristic_content_txt{
+    color: #fff !important;
+    max-width: 35.3rem;
+}
+.cove_characteristic_content{
+    display: flex;
+    align-items: center;
+    
+}
+.cove_characteristic_content_txt{
+    text-transform: uppercase;
+}
+.cove_characteristic_content_num{
+    font-size: 40rem;
+    font-family: "Bona Nova";
+    position: relative;
+    &::before{
+        content: "";
+        width: 10.4rem;
+        height: 9.8rem;
+        bottom: 14rem;
+        right: 9rem;
+        position: absolute;
+        background: url(/assets/img/characteristic_num.png) no-repeat;
+        background-size: 100% 100%;
+    }
+
+}
+.cove_characteristic_inner_wrap{
+    position: relative;
+    z-index: 2;
+}
+.cove_characteristic_list_item_txt{
+    margin-left: 4rem;
+    max-width: 40rem;
+    font-weight: 600;
+}
+.cove_characteristic_list{
+    position: relative;
+    z-index: 2;
+}
+.cove_characteristic_list_line{
+    position: absolute;
+    width: .3rem;
+    top: 2rem;
+    bottom: 0;
+    left: 5rem;
+    z-index: 1;
+    height: 62rem;
+}
+@media screen and (max-width:991px) {
+    .cove_characteristic{
+        overflow: hidden;
+    }
+    .cove_characteristic_inner{
+        margin-top: 0rem;
+        margin-left: 0;
+    }
+    .cove_characteristic_content_num{
+        font-size: 20rem;
+        line-height: 1;
+        &::before{
+        width: 7.4rem;
+        height: 4.8rem;
+        bottom: 2rem;
+        right: 4rem;
+        }
+    }
+    .cove_characteristic_inner{
+        flex-direction: column;
+        align-items: center;
+        gap: 0rem;
+    }
+    .cove_characteristic_list_item_img_wrap{
+        width: 6rem;
+        height: 6rem;
+    }
+    .cove_characteristic_list_item_img {
+        width: 3.2rem ;
+    }
+    .cove_characteristic_content_txt{
+        max-width: unset;
+    }
+    .cove_characteristic_list_item{
+        margin-bottom: 2rem;
+    }
+    .cove_characteristic_list_line {
+        left: 3rem;
+        height: 27rem;
+    }
+}
+@media screen and (max-width:767px){
+    .cove_characteristic{
+        margin-top: -2rem;
+    }
+    .cove_characteristic_content_num{
+        font-size: 15rem;
+        line-height: .9em;
+        &::before{
+            width: 6.4rem;
+            height: 3.8rem;
+            bottom: 1.5rem;
+            right: 3rem;
+        }
+    }
+    .cove_characteristic_content_txt {
+        font-size: 3rem;
+        white-space: nowrap;
+    }
+    .cove_characteristic_list_item_txt {
+        margin-left: 0;
+        width: calc( 100% - 6rem);
+    }
+    .cove_characteristic_inner{
+        margin-inline: 2rem;
+    }
+    .cove_characteristic_list_item_txt{
+        max-width: unset;
+    }
+    .cove_characteristic_list_item_img_wrap {
+        width: 5rem;
+        height: 5rem;
+    }
+    .cove_characteristic_list_item_img {
+        width: 2.5rem;
+    }
+    .cove_characteristic_list_item{
+        margin-bottom: 1rem;
+    }
+    .cove_characteristic_list_item{
+        gap: 1rem;
+    }
+    .cove_characteristic_list_line {
+        display: none;
+    }
+}
+/* location */
+.cove_location{
+    background: url(/assets/img/bg_inspirationion.png) no-repeat top;
+    background-size: 100% 100%;
+}
+.cove_location_inner{
+    margin-top: 8rem;
+    margin-left: 7rem;
+    display: flex;
+}
+.cove_location_img{
+    margin-right: 8rem;
+    max-width: 102.1rem;
+     mix-blend-mode: darken;
+}
+.cove_location_info{
+    max-width: 57.5rem;
+}
+.cove_location_info_title{
+    margin-bottom: 3rem;
+    margin-top: 19.2rem;
+}
+.cove_location_info_des{
+    margin-bottom: 1rem;
+}
+@media screen and (max-width:991px) {
+    .cove_location_inner{
+        flex-direction: column;
+        margin-top: 2rem;
+        margin-inline: 3rem ;
+    }
+    .cove_location_img{
+        order: 2;
+        width: 100%;
+        max-width: unset;
+        margin-right: 0;
+    }
+    .cove_location_info{
+        order: 1;
+        max-width: unset;
+        width: 100%;
+    }
+    .cove_location_info_title{
+        margin-top: 0;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+}
+@media screen and (max-width:767px) {
+    .cove_location_inner{
+        margin-inline: 2rem;
+    }
+}
+    /* utilities */
+.cove_utilities{
+     background: url(/assets/img/bg_inspirationion.png) no-repeat top;
+    background-size: 100% 100%;
+    padding-bottom: 2rem;
+}
+.cove_utilities_img{
+    mix-blend-mode: darken;
+    margin-inline: 10rem;
+}
+.cove_utilities_title{
+    margin-bottom: -6rem;
+}
+@media screen and (max-width:991px) {
+    .cove_utilities_img {
+        margin-inline: 2rem;
+    }
+    .cove_utilities_title {
+        margin-bottom: -2rem;
+    }
+}
+@media screen and (max-width:767px) {
+    .cove_utilities_title {
+        margin-top: 2rem;
+        margin-bottom: 0;
+    }
+    .cove_utilities_img {
+        margin-inline: 2rem;
+    }
+}
+/* production */
+.cove_production{
+    background: url(/assets/img/bg_production.png) no-repeat top;
+    background-size: 100% 100%;
+    position: relative;
+}
+.cove_production_high, .cove_production_next{
+    padding: 1rem 3.5rem;
+    background-color: #F2E9DC;
+    border-radius: 1.5rem;
+    border: 2px solid #015533;
+    position: absolute;
+    color: #015533;
+    cursor: pointer;
+    z-index: 5;
+    top: 2.8rem;
+    transition: all .4s ease;
+    font-weight: 600;
+    &.active{
+        color: #643E1C;
+        background: linear-gradient(to right, #C09C6B 0%, #E9DCB8 100%) ;
+        border-color: #643E1C;
+    }
+    &:hover{
+        color: #643E1C;
+        background: linear-gradient(to right, #C09C6B 0%, #E9DCB8 100%) ;
+        border-color: #643E1C;
+    }
+}
+.cove_production_next{
+    right: 18.4rem;
+}
+.cove_production_high{
+    right: 46.5rem;
+}
+.cove_production_content_title{
+    font-family: "1FTV VIP Kiltier";
+    margin-bottom: 3rem;
+}
+.cove_production_content{
+    position: relative;
+    margin-left: 8rem;
+    margin-top: 23rem;
+    z-index: 10;
+    padding-bottom: 40.8rem;
+    *{
+        color: #fff;
+    }
+}
+.cove_production_content_des{
+    max-width: 39.5rem;
+    margin-bottom: 1rem;
+}
+.cove_production_overlay{
+    position: absolute;
+    background: linear-gradient(to right, #053522d8 0%, #053522ae 50%, #05352277 75%, #05352200 100%  ) ;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 55%;
+    pointer-events: none;
+}
+.cove_production_highfloor, .cove_production_lowfloor, .cove_production_floor{
+    background: url(/assets/img/bg_floor.webp) top no-repeat;
+    background-size: 100% 100%;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    overflow: auto;
+    display: none;
+    &.active{
+        display: block;
+    }
+}
+.cove_production_highfloor_inner{
+padding-inline: 21rem;
+margin-top: 4.5rem;
+}
+.cove_production_highfloor_content{
+    display: flex;
+    justify-content: space-between;
+}
+.cove_production_highfloor_area{
+    max-width: 51.5rem;
+}
+.cove_production_highfloor_info{
+    max-width: 65.4rem;
+}
+.cove_production_highfloor_area_txt{
+    font-weight: 600;
+    margin-top: 1rem;
+}
+.cove_production_highfloor_title{
+    border-bottom: 3px solid #A9805C;
+    margin-bottom: 2.5rem;
+}
+.cove_production_highfloor_info_txt{
+    position: relative;
+    margin-bottom: .5rem;
+    &::before{
+        position: absolute;
+        width: 1rem;
+        height: 1rem;
+        content: "";
+        border-radius: 50%;
+        background-color: #C09C6B   ;
+        left: -1.5rem;
+        top: 1rem;
+    }
+}
+.cove_production_highfloor_list{
+    display: flex;
+    justify-content: space-between;
+}
+.cove_production_highfloor_list_img{
+    max-width: 60.5rem;
+}
+.cove_production_highfloor_list_img1{
+    max-width: 66.6rem;
+    mix-blend-mode: multiply;
+    margin-top: 4rem;
+}
+.cove_production_highfloor_close, .cove_production_lowfloor_close, .cove_production_floor_close{
+    position: absolute;
+    color: #015533;
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #EBE0D0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 4.4rem;
+    font-weight: 600;
+    top: 3rem;
+    font-size: 3rem;
+}
+.cove_production_lowfloor_img{
+    display: none;
+    margin-top: 4rem;
+    &.active{
+        display: block;
+    }
+}
+.cove_production_lowfloor_title_txt{
+    text-transform: uppercase;
+    transition: color .3s ease;
+    cursor: pointer;
+    &:hover{
+        color: #A9805C;
+    }
+    &.active{
+        color: #A9805C;
+    }
+}
+.cove_production_lowfloor_title{
+    border-bottom: 3px solid #A9805C;
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 2.5rem;
+    padding-bottom: .3rem   ;
+}
+.cove_production_lowfloor_inner{
+    padding-inline: 21rem;
+    margin-top: 4.5rem;
+    
+}
+.cove_production_floor_inner{
+padding-inline: 26rem;
+margin-bottom: 6rem;
+    margin-top: 7.2rem;
+}
+.cove_production_floor_img {
+     mix-blend-mode: multiply;
+}
+.cove_production_floor_button, .cove_production_highfloor_button, .cove_production_lowfloor_button{
+    position: absolute;
+    justify-content:space-between;
+    display: flex;
+    inset: 50% 5rem 0;
+    *{
+        cursor: pointer;
+        width: 5.5rem;
+        height: 5.5rem;
+    }
+}
+.cove_production_building{
+    opacity: 0;
+    position: absolute;
+    width: 113.4rem;
+    top: 35rem;
+    right: 13rem;
+    transition: opacity .3s ease;
+    cursor: pointer;
+    z-index: 15;
+    &:hover{
+        opacity: 1;
+    }
+}
+.cove_production_house{
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    width: 128.8rem;
+    bottom: 3rem;
+    right: 16rem;
+    z-index: 15;
+    transition: opacity .3s ease;
+    &:hover{
+        opacity: 1;
+    }
+}
+@media screen and (max-width:991px) {
+    .cove_production_content{
+        margin-top: 4rem;
+        padding-bottom: 7rem;
+    }
+    .cove_production_next, .cove_production_high{
+        padding-inline: 2rem;
+    }
+    .cove_production_next{
+            right: 8rem;
+    }
+    .cove_production_high{
+        right: 28.5rem;
+    }
+    .cove_production_building{
+        width: 46.4rem;
+        top: 16.2rem;
+        right: 5rem;
+    }
+    .cove_production_house {
+        width: 53.8rem;
+        bottom: 1.8rem;
+        right: 6.8rem;
+    }
+    .cove_production_highfloor_close, .cove_production_lowfloor_close, .cove_production_floor_close{
+        right: 1.4rem;
+    }
+    .cove_production_floor_inner, .cove_production_highfloor_inner, .cove_production_lowfloor_inner{
+        padding-inline: 7rem;
+    }
+    .cove_production_floor_button_next, .cove_production_floor_button_prev{
+        width: 4rem;
+        height: 4rem;
+    }
+    .cove_production_highfloor_button, .cove_production_lowfloor_button, .cove_production_floor_button{
+        inset: 50% 2rem;
+    }
+    .cove_production_highfloor_inner{
+        padding-inline: 7rem;
+    }
+}
+@media screen and (max-width:767px) {
+    
+}
+/* cove_news */
+.cove_news{
+background: url(/assets/img/bg_inspirationion.png) no-repeat top;
+    background-size: 100% 100%;
+    position: relative;
+}
+.cove_news_title_wrap{
+    display: flex;
+    gap: 6rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+.cove_news_title{
+    font-family: 'Times New Roman';
+    font-weight: bold;
+    line-height: 1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all .2s ease-out;
+    padding-bottom: .8rem;
+    &.active{
+        color: #C09C6B;
+        border-bottom: 3px solid #C09C6B;
+    }
+    &:hover{
+        color: #C09C6B;
+        border-bottom: 3px solid #C09C6B;
+    }
+}
+.cove_news_content_info_seemore{
+    display: block;
+    text-transform: uppercase;
+    color: #C09C6B;
+    line-height: 2.25em;
+    padding-inline: 4rem;
+    border: 1px solid #C09C6B;
+    border-radius: 1rem;
+    text-decoration: none;
+    width: max-content;
+    margin-block: 4rem 4.4rem;
+}
+.cove_news_other_info_seemore{
+    display: block;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #C09C6B;
+    line-height: 2.25em;
+    padding-inline: 4rem;
+    border: 1px solid #C09C6B;
+    border-radius: 1rem;
+    width: max-content;
+    margin-top: 6rem;
+}
+.cove_news_content{
+    max-width: 144.8rem;
+    margin-inline: auto;
+    position: relative;
+    background-color: #015533;
+    margin-top: 13rem;
+    display: flex;
+    justify-content: right;
+    *{
+        color: #fff;
+    }
+}
+.cove_news_content_info{
+    margin-right: 13rem;
+    max-width: 59.2rem;
+    padding-top: 6.5rem;
+}
+.cove_news_content_img{
+    position: absolute;
+    width: 62.3rem;
+    top: -5.4rem;
+    left: 3.7rem;
+}
+.cove_news_other_img{
+    width: 5.9rem;
+}
+.cove_news_other{
+    display: flex;
+    margin-inline: 24rem;
+    gap: 14.5rem;
+    padding-bottom: 11.1rem;
+}
+.cove_news_other_item{
+    display: flex;
+    margin-top: 10rem;
+}
+.cove_news_other_info{
+    margin-top: 6rem;
+}
+.cove_news_other_info_day, .cove_news_other_info_time{
+    font-family: 'Times New Roman';
+    font-weight: bold;
+}
+.cove_news_other_info_des{
+    max-width: 59.2rem;
+    font-weight: 600;
+    margin-top: 2rem;
+}
+.cove_news_inner{
+    display: none;
+    &.active{
+        display: block;
+    }
+}
+@media screen and (max-width:991px) {
+    .cove_news_other{
+        margin-inline: 3rem;
+    }
+    .cove_news_content_img {
+        position: unset;
+        width: 40rem;
+    }
+    .cove_news_content{
+        margin-top: 5rem;
+        align-items: center;
+        padding-inline: 2rem;
+        gap: 2rem;
+    }
+    .cove_news_content_info{
+        margin-right: 0;
+    }
+    .cove_news_other_info{
+        margin-top: 0;
+    }
+    .cove_news_other{
+        gap: 0;
+        justify-content: space-between;
+        padding-bottom: 3rem;
+    }
+    .cove_news_other_info_seemore{
+        padding-inline: 2rem;
+    }
+    .cove_news_other_info_des{
+        max-width: unset;
+    }
+    .cove_news_other_item{
+        width: 48%;
+    }
+    .cove_news_other_img{
+    width: 9.9rem;
+}
+}
+@media screen and (max-width:767px) {
+    
+}
+/* partner */
+
+.cove_partner{
+    background: url(/assets/img/bg-partner.webp) no-repeat top;
+    background-size: 100% 100%;
+    *{
+        color: #fff;
+    }
+}
+.cove_partner_title, .cove_partner_title2, .cove_partner_title1{
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.cove_partner_title{
+    max-width: 75.8rem;
+    margin-inline: auto;
+    margin-top: 8.5rem;
+    margin-bottom: 5.2rem;
+}
+.cove_partner_title2{
+    max-width: 75.8rem;
+    margin-inline: auto ;
+    margin-bottom: 4.7rem;
+    margin-top: 6.9rem;
+}
+.cove_partner_title1{
+    margin-top: 12rem;
+    margin-bottom: 6rem;
+}
+.cove_partner_list_item{
+    width: 13.9rem;
+}
+.cove_partner_list{
+    display: flex;
+    justify-content: space-between;
+    max-width: 67.5rem;
+    margin-inline: auto;
+}
+.cove_partner_list_partner_item_txt{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.cove_partner_list_partner{
+    display: flex;
+    max-width: 148.4rem;
+    margin-inline: auto;
+    justify-content: space-between;
+    padding-bottom: 11.5rem;
+}
+.cove_partner_list_partner_item_img{
+    max-width: 32.5rem;
+}
+.cove_partner_logo_img{
+    width:32.4rem;
+    margin-inline: auto;
+}
+@media screen and (max-width:991px) {
+    .cove_partner_list{
+        margin-inline: 8rem;
+    }
+    .cove_partner_title2 {
+        margin-top: 5rem;
+    }
+    .cove_partner_title1 {
+        margin-top: 5rem;
+    }
+    .cove_partner_list_partner{
+        max-width: unset;
+        margin-inline: 4rem;
+        flex-wrap: wrap;
+        row-gap: 3rem;
+        padding-bottom: 7rem;
+    }
+}
+@media screen and (max-width:767px) {
+    .cove_partner_title2 {
+        margin-inline: 2rem;
+        br{
+            display: none;
+        }
+    }
+    .cove_partner_title {
+        line-height: 1;
+    }
+}
+/* contact */
+.cove_contact{
+    background: url(/assets/img/bg_inspirationion.png) no-repeat top;
+    background-size: 100% 100%;
+}
+.cove_contact_list{
+    display: flex;
+    margin-right: 16rem;
+}
+.cove_contact_inner{
+    display: flex;
+    margin-left: 16rem;
+    margin-top: 14rem;
+}
+.cove_contact_list_img{
+    width: 32.3rem;
+}
+.cove_contact_inner_info_address_list_icon{
+    width: 4rem;
+    display: block;
+}
+.cove_contact_info_title{
+    font-family: 'Times New Roman';
+    font-weight: bold;
+    margin-bottom: 3rem;
+}
+.cove_contact_inner_info_address{
+    max-width: 40.8rem;
+}
+.cove_contact_inner_info_address_title{
+    font-weight: 700;
+}
+.cove_contact_inner_info_address_title1{
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 3rem;
+}
+.cove_contact_subtitle{
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+.cove_contact_logo{
+    margin-inline: auto;
+    width: 14rem;
+    margin-bottom: 2rem;
+}
+.cove_contact_info_inner{
+    display: flex;
+}
+.cove_contact_inner_info_form{
+    max-width: 34rem;
+    margin-right: 7.5rem;
+    input{
+        width: 100%;
+        background-color: transparent;
+        border: 0;
+        border-bottom: 2px solid #8D8D8D;
+        margin-bottom: 4.5rem;
+        padding-block: 1.5rem;
+        &::placeholder{
+            font-family: 'Montserrat';
+            font-size: 1.8rem;
+            line-height: 4.5rem;
+        }
+    }
+}
+.cove_contact_inner_info_form_submit{
+    color: #fff;
+    background-color: #C09C6B;
+    border: none;
+    font-weight: 600;
+    line-height: 4.5rem;
+    padding-inline: 5.5rem;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-family: 'Montserrat';
+    margin-bottom: 2.5rem;
+}
+.cove_contact_inner_info_address_ggmap{
+     color: #fff;
+    background-color: #C09C6B;
+    border: none;
+    font-weight: 600;
+    line-height: 4.5rem;
+    padding-inline: 5.5rem;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-family: 'Montserrat';
+    margin-bottom: 2.5rem;
+    display: block;
+    width: max-content;
+    text-decoration: none;
+    margin-top: 1.5rem;
+}
+.cove_contact_inner_info_address_list{
+    display: flex;
+    gap: 1.3rem;
+}
+.cove_contact_des{
+    margin-bottom: 1rem;
+    max-width: 70rem;
+
+}
+.cove_contact_list_img_wrap{
+    margin-right: 1.5rem;
+}
+.img_list{
+    margin-bottom: 1rem;
+}
+@media screen and (max-width:991px) {
+    .cove_contact_inner{
+        margin-inline: 3rem ;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .cove_contact_list{
+        margin-right: 0;
+    }
+    .cove_contact_inner_info_form{
+        max-width: unset;
+    }
+    .cove_contact_inner_info_address{
+        max-width: unset;
+    }
+    .cove_contact_info{
+        margin-top: 4rem;
+    }
+    .cove_contact_inner_info_address_ggmap, .cove_contact_inner_info_form_submit{
+        padding-inline: 3rem;
+    }
+    .cove_contact_inner_info_address_list_icon {
+        width: 6rem;
+    }
+}
+@media screen and (max-width:767px) {
+    .cove_contact{
+        display: none;
+    }
+}
+/* btn */
+.cove_btn{
+    position: fixed;
+    right: 4rem;
+    top: 3rem;
+    bottom: 0;
+    z-index: 100;
+}
+.cove_btn_menu, .cove_btn_list_item, .cove_btn_crolltop{
+    width: 5.5rem;
+    cursor: pointer;
+    display: block;
+}
+.cove_btn_list{
+    position: absolute;
+    top: 33rem;
+}
+.cove_btn_crolltop{
+    position: absolute;
+    bottom: 6.5rem;
+}
+@media screen and (max-width:991px){
+    .cove_btn_menu, .cove_btn_list_item, .cove_btn_crolltop{
+    width: 4.5rem;
+}
+.cove_btn{
+    right: 2rem;
+    top: 2rem;
+}
+}
+@media screen and (max-width:767px){
+    .cove_btn_menu, .cove_btn_list_item, .cove_btn_crolltop{
+    width: 4rem;
+}
+.cove_btn{
+    right: 1rem;
+    top: 2rem;
+}
+.cove_btn_crolltop{
+    bottom: 3rem;
+}
+}
