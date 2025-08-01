@@ -3,7 +3,7 @@ function swiperSlide(){
         spaceBetween: 30,
         centeredSlides: true,
         autoplay: {
-          delay: 100000,
+          delay: 2500,
           disableOnInteraction: false,
         },
         pagination: {
@@ -27,9 +27,9 @@ function lowFloorImg(){
     $(this).addClass('active');
 
     // Ẩn toàn bộ ảnh
-    $('.cove_production_lowfloor_img').removeClass('active');
+    $('.cove_production_lowfloor_content').removeClass('active');
     // Hiện ảnh tương ứng
-    $('.cove_production_lowfloor_img[data-floor="' + selectedFloor + '"]').addClass('active');
+    $('.cove_production_lowfloor_content[data-floor="' + selectedFloor + '"]').addClass('active');
   });
    $('.cove_production_lowfloor_close').on('click', function () {
     $(".cove_production_lowfloor").removeClass("active")
@@ -54,10 +54,34 @@ function lowFloorImg(){
     $(".cove_production_floor").addClass("active")
      $(".cove_production_highfloor").removeClass("active")
      $(".cove_production_lowfloor").removeClass("active")
-  });
-  $('.cove_model_close').on('click', function () {
-     $(".cove_model").removeClass("active")
+    });
+  }
+  lowFloorImg()
+function model(){
+    $('.cove_model_close').on('click', function () {
+       $(".cove_model").removeClass("active")
+    });
+     $('.cove_model').on('click', function (e) {
+    if (!$(e.target).closest('.cove_model_inner').length) {
+      $('.cove_model').removeClass('active');
+    }
   });
   }
-  
-  lowFloorImg()
+  model()
+
+  function characteristic(){
+    $('.cove_characteristic_list_item').hover(
+      function() {
+        $(this).find('.cove_characteristic_list_item_bg').addClass("active")
+         $(".cove_characteristic_list_item_img").addClass("active")
+         $(".cove_characteristic_list_item_txt").addClass("active")
+           $(this).find('.cove_characteristic_list_item_img').removeClass("active")
+          $(this).find('.cove_characteristic_list_item_txt').removeClass("active")
+      },
+      function() {
+        $(this).find('.cove_characteristic_list_item_bg').removeClass("active")
+        $(".").removeClass("active")
+      }
+    );
+  }
+  // characteristic()

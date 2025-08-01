@@ -75,6 +75,10 @@ body{
     font-size: 2.8rem;
     line-height: 1.071em;
 }
+.txt_30{
+    font-size: 3rem;
+    line-height: 1em;
+}
 .txt_35{
     font-size: 3.5rem;
     line-height: .628em;
@@ -111,7 +115,7 @@ line-height: 1;
 }
 @media screen and (max-width:991px) {
   body{
-    font-size: 1.7rem;
+    font-size: 1.6rem;
 }
   .txt_16{
     font-size: 1.5rem;
@@ -129,6 +133,9 @@ line-height: 1;
 }
 .txt_28{
     font-size: 2.4rem;
+}
+.txt_30{
+    font-size: 2.5rem;
 }
 .txt_35{
     font-size: 3rem;
@@ -151,41 +158,44 @@ font-size: 7.2rem;
 }
 @media screen and (max-width:767px) {
   body{
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
   .txt_16{
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 
 }
 .txt_17{
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 
 }
 .txt_22{
-  font-size: 1.7rem;
+  font-size: 1.6rem;
 }
 .txt_25{
     font-size: 1.8rem;
 }
 .txt_28{
-    font-size: 2.2rem;
+    font-size: 2rem;
+}
+.txt_30{
+    font-size: 2rem;
 }
 .txt_35{
-    font-size: 2.6rem;
+    font-size: 2rem;
 }
 .txt_50{
-  font-size: 3.4rem;
+  font-size: 2.8rem;
 }
 .txt_55{
-font-size: 3.8rem;
+font-size: 3.2rem;
 }
 .txt_60{
-    font-size: 4.2rem;
+    font-size: 3.5rem;
 }
 .txt_65{
-    font-size: 4.5rem;
+    font-size: 3.7rem;
 }
 .txt_90{
-font-size: 5.5rem;
+font-size: 4.5rem;
 }
 }
