@@ -18,10 +18,39 @@
   src: url('../fonts/Montserrat-Medium.ttf') format('opentype');
   font-weight: 500;
 }   
+@font-face {
+  font-family: "1FTV VIP Kiltier";
+  src: url('../fonts/1FTV-VIP-Kiltier-1.woff2') ;
+}   
+@font-face {
+  font-family: "1FTV VIP Ramole";
+  src: url('../fonts/1FTV-VIP-Ramole.woff2') ;
+}   
+@font-face {
+  font-family: "Bona Nova";
+  src: url('../fonts/BonaNova-Regular.woff2') ;
+}   
 .kl_container{
   max-width: 2560px;
   margin-inline: auto;
+  width: 100%;
+  height: 100%;
 }
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
 
 *{
     box-sizing: border-box;
@@ -30,9 +59,19 @@ html {
   font-size: 0.52083333333vw;
 }
 body{
+  margin: 0;
     color: #444444;
     font-size: 2rem;
     font-family: "Montserrat";
+}
+.img_full {
+  display: flex;
+}
+.flex {
+  display: flex;
+}
+.full_screen {
+  height: 100vh;
 }
 .img_full img{
   width: 100%;
@@ -112,6 +151,12 @@ line-height: 1;
 }
 .txt_center{
     text-align: center;
+}
+.txt_semi {
+  font-weight: 600;
+}
+.txt_up{
+  text-transform: uppercase;
 }
 @media screen and (max-width:991px) {
   body{
@@ -198,4 +243,78 @@ font-size: 3.2rem;
 .txt_90{
 font-size: 4.5rem;
 }
+}
+.hover-un {
+  	position: relative;
+  }
+  .hover-arr:hover .ic-arr-main {
+    transform: translateX(100%);
+    transition: transform .4s ease;
+  }
+  .hover-arr:hover .ic-arr-clone {
+    transform: translateX(0%);
+    transition: transform .4s ease;
+  }
+  .hover-group:hover .hover-item {
+  	opacity: 0.6;
+  }
+  .hover-group .hover-item:hover {
+  	opacity: 1;
+  }
+  .line-inner.line-inner-hover {
+    background-color: currentColor;
+    position: relative;
+}
+.line {
+      width: 100%;
+    height: 1px;
+    &.line-md {
+      height: .2rem;
+    }
+}
+.line-arr {
+    display: flex;
+    overflow: hidden;
+}
+.line.line-main {
+    background-color: currentColor;
+    transition-property: transform;
+    transition-duration: .4s;
+    transition-timing-function: ease;
+    flex: none;
+}
+.line.line-clone {
+  flex: none;
+    background-color: currentColor;
+    transition-property: transform;
+    transition-duration: .4s;
+    transition-timing-function: ease;
+    overflow: hidden;
+    transform: translate(calc(-200% - 2rem));
+}
+  .hover-un .line-inner-hover {
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .6s ease;
+    width: 100%;
+    height: 100%;
+  }
+  .hover-un .hover-un-inner:nth-child(2) .line-inner-hover {
+    transition-delay: .1s;
+    transition-duration: .5s;
+  }
+  .hover-un:hover .line-inner-hover {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+   .hover-arr:hover .line-main {
+  	transform: translateX(calc(100% + 2rem));
+  }
+  .hover-arr:hover .line-clone{
+  	transform: translateX(-100%);
+  }
+  .line.line-hover {
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
 }
