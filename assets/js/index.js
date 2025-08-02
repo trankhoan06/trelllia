@@ -7,7 +7,9 @@ const mainScript = () => {
       return oldHtml.replaceAll("-", "<span>-</span>");
     });
   }
-  let lenis = new Lenis({});
+  const lenis = new Lenis({
+  wheelMultiplier: 1.5, // tăng hệ số cuộn chuột, mặc định là 1
+});
     function raf(time) {
     lenis.raf(time);
     requestAnimationFrame(raf);
@@ -22,7 +24,7 @@ const mainScript = () => {
         const headerRect = $('.header').get(0).getBoundingClientRect();
         return (
             rect.bottom >= 0 &&
-            rect.top - headerRect.height/3  <= 0
+            rect.top  <= 0
         );
     }
   class Header  {
@@ -45,7 +47,8 @@ const mainScript = () => {
       });
       $('.navbar-toggler-icon-wrap').on('click', function () {
         console.log('khanh')
-        $('.header').toggleClass('menu-open');
+        $('body').toggleClass('menu-open');
+        $('.main_menu').toggleClass('active');
       })
     }
     play() {

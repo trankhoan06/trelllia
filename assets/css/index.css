@@ -11,16 +11,20 @@
     left: 0;
     right: 0;
     color: white;
+
     &.on-green {
         color: #015533;
     }
+
     &.on-hide {
         .header_nav {
             transform: translateY(-1000%);
         }
     }
+
     a {
         color: inherit;
+        transition: color .4s ease;
     }
 }
 
@@ -76,16 +80,16 @@
     padding: 1.6rem 1rem;
     height: 5rem;
     border-radius: 50%;
-    position: absolute;
+    position: fixed;
     right: 4.4rem;
-    top: 50%;
-    transform: translateY(-50%);
+    z-index: 10000;
+    top: 3rem;
     background-color: #EBE0D0;
     cursor: pointer;
     pointer-events: all;
 }
 
-.header .navbar-toggler-icon {
+body .navbar-toggler-icon {
     background: transparent;
     width: 100%;
     height: 100%;
@@ -95,7 +99,7 @@
 
 }
 
-.header .navbar-toggler-icon>span {
+body .navbar-toggler-icon>span {
 
     display: block;
     width: 100%;
@@ -106,56 +110,56 @@
     transition: 0.3s ease all;
 }
 
-.header .navbar-toggler-icon>span:nth-of-type(1) {
+body .navbar-toggler-icon>span:nth-of-type(1) {
     width: 100%;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.header .navbar-toggler-icon>span:nth-of-type(2) {
+body .navbar-toggler-icon>span:nth-of-type(2) {
     width: 100%;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
 }
 
-.header .navbar-toggler-icon>span:nth-of-type(3) {
+body .navbar-toggler-icon>span:nth-of-type(3) {
     width: 60%;
     top: 100%;
     left: 0;
     transform: translateY(-100%);
 }
 
-.header .navbar-toggler-icon:hover>span {
+body .navbar-toggler-icon:hover>span {
     width: 100%;
     transition: 0.3s ease all;
 }
 
-.header.menu-open .navbar-toggler-icon {
+body.menu-open .navbar-toggler-icon {
     margin: 0;
     transform: rotate(180deg);
     transition: 0.3s ease all;
     opacity: 1;
 }
 
-.header.menu-open .navbar-toggler-icon>span {
+body.menu-open .navbar-toggler-icon>span {
     width: 100%;
     height: .2rem;
     transition: 0.3s ease all;
 }
 
-.header.menu-open .navbar-toggler-icon>span:nth-child(1) {
+body.menu-open .navbar-toggler-icon>span:nth-child(1) {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.header.menu-open .navbar-toggler-icon>span:nth-child(2) {
+body.menu-open .navbar-toggler-icon>span:nth-child(2) {
     opacity: 0;
 }
 
-.header.menu-open .navbar-toggler-icon>span:nth-child(3) {
+body.menu-open .navbar-toggler-icon>span:nth-child(3) {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
@@ -163,10 +167,17 @@
 
 
 @media screen and (max-width:991px) {
+    .navbar-toggler-icon-wrap {
+        width: 3.2rem;
+        padding: 1rem .8rem;
+        height: 3.2rem;
+        right: 2rem;
+        top: 1.2rem;
+    }
+
     .header_inner {
-        padding-left: 3rem;
-        padding-right: 8rem;
-        padding-top: 3rem;
+        padding-inline: 2rem 8rem;
+        padding-block: 1.6rem;
     }
 
     .haeder_logo {
@@ -180,6 +191,7 @@
     .header_nav {
         display: none;
     }
+
 }
 
 @media screen and (max-width:767px) {
@@ -196,15 +208,17 @@
 .cove_hero_overlay {
     position: absolute;
     inset: 0 0 50%;
-    background: linear-gradient(to bottom, #46301a50 0%, #46301a20 25%, #46301A00 100%);
+    opacity: .3;
+    background: linear-gradient(to bottom, #46301A 0%, #46301A00 100%);
     z-index: 5;
     pointer-events: none;
 }
 
 .cove_hero_overlay_right {
+    opacity: .4;
     position: absolute;
     inset: 0 0 50%;
-    background: linear-gradient(to bottom, #05372270 0%, #05372240 25%, #05372220 50%, #05372200 100%);
+    background: linear-gradient(to bottom, #053722 0%, #05372200 100%);
     z-index: 5;
     pointer-events: none;
 }
@@ -273,9 +287,7 @@
 }
 
 @media screen and (max-width:767px) {
-    .cove_hero_slide_item_txt {
-        display: none;
-    }
+
 
     .cove_hero {
         height: auto;
@@ -499,7 +511,8 @@
 
 .cove_inspiration {
     background: url(/assets/img/bg_inspirationion.png) no-repeat top;
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position: right;
 }
 
 .cove_inspiration_list {
@@ -518,13 +531,26 @@
 }
 
 @media screen and (max-width:991px) {
+    .cove_hero_slide_item_txt_wrap {
+        width: 50rem;
+
+        &.left {
+            left: 3rem;
+            top: 20rem;
+        }
+
+        &.right {
+            right: 3rem;
+        }
+    }
+
     .cove_inspiration_list_img {
         width: 16.3rem;
     }
 
     .cove_inspiration_inner {
-        margin: 2rem 3rem;
-        gap: 1rem;
+        gap: 2.4rem;
+        padding: 10rem 3rem 0 3rem;
     }
 
     .cove_inspiration_logo {
@@ -537,6 +563,11 @@
 
     .cove_inspiration_list {
         padding-top: 4rem;
+        gap: 1rem;
+    }
+
+    .cove_inspiration_list_item {
+        gap: 1rem;
     }
 
     .cove_inspiration_logo {
@@ -547,18 +578,13 @@
 
 @media screen and (max-width:767px) {
     .cove_inspiration_inner {
+        padding-block: 6rem;
         flex-direction: column;
-        margin-inline: 2rem;
     }
 
     .cove_inspiration_list {
         padding-top: 0;
-        order: 1;
         justify-content: space-around;
-    }
-
-    .cove_inspiration_info {
-        order: 2;
     }
 
     .cove_inspiration_list_img {
@@ -650,14 +676,23 @@
     cursor: pointer;
     z-index: 2;
     width: 25%;
-    border-right: 2px solid #fff;
     min-height: 42.6rem;
+    position: relative;
 
     &:hover {
         .cove_characteristic_list_item_bg {
             opacity: 1;
         }
     }
+}
+
+.cove_characteristic_list_item_line {
+    height: 100%;
+    position: absolute;
+    width: .2rem;
+    background-color: white;
+    right: 0;
+    top: 0;
 }
 
 .cove_characteristic_content_txt {
@@ -721,6 +756,7 @@
     width: 41rem;
     height: 42.6rem;
     inset: 0;
+    z-index: 10;
     opacity: 0;
     pointer-events: none;
     transition: opacity .6s ease;
@@ -740,7 +776,7 @@
     }
 
     &.active {
-        display: block;
+        opacity: 1;
     }
 
     .cove_characteristic_list_item_txt {
@@ -748,36 +784,72 @@
         left: 0;
         right: 0;
         text-align: center;
+        top: 100%;
     }
 }
 
 @media screen and (max-width:991px) {
+    .cove_characteristic_content {
+        margin-bottom: 8rem;
+    }
+
+    .cove_characteristic_list_item_bg {
+        flex-direction: column;
+        position: relative;
+        height: auto;
+        width: 100%;
+        padding: 2rem 2rem 4rem 2rem;
+        opacity: 1;
+        pointer-events: all;
+
+        img {
+            height: 48rem;
+        }
+
+        .cove_characteristic_list_item_txt {
+            display: block !important;
+            position: relative;
+        }
+    }
+
+    .cove_characteristic_list_item_line {
+        width: 100%;
+        height: .2rem;
+        display: none;
+        bottom: 0;
+        left: 0;
+        top: unset;
+    }
+
+    .cove_characteristic_list_item_img,
+    .cove_characteristic_list_item_txt {
+        display: none !important;
+    }
+
     .cove_characteristic {
         overflow: hidden;
     }
 
     .cove_characteristic_inner {
+        display: flex;
         margin-top: 0rem;
-        margin-left: 0;
+        margin-inline: 3rem;
+        flex-direction: column;
+        gap: 4rem;
     }
 
     .cove_characteristic_content_num {
-        font-size: 20rem;
+        font-size: 17rem;
         line-height: 1;
 
         &::before {
             width: 7.4rem;
             height: 4.8rem;
-            bottom: 2rem;
+            bottom: -2rem;
             right: 4rem;
         }
     }
 
-    .cove_characteristic_inner {
-        flex-direction: column;
-        align-items: center;
-        gap: 0rem;
-    }
 
     .cove_characteristic_list_item_img_wrap {
         width: 6rem;
@@ -790,32 +862,42 @@
 
     .cove_characteristic_content_txt {
         max-width: unset;
+        margin-bottom: 0;
     }
 
     .cove_characteristic_list_item {
-        margin-bottom: 2rem;
+        margin-bottom: 0;
+        width: 70%;
+        margin-left: 15%;
+        padding-bottom: 0;
+    }
+
+    .cove_contact_subtitle,
+    .cove_contact_des {
+        text-align: start;
+    }
+
+    .cove_contact_logo {
+        margin-left: 0 !important;
     }
 }
 
 @media screen and (max-width:767px) {
-    .cove_characteristic {
-        margin-top: -2rem;
-    }
+
 
     .cove_characteristic_content_num {
-        font-size: 15rem;
-        line-height: .9em;
+        font-size: 6rem;
+        line-height: 1.2;
+        margin-right: .4rem;
 
         &::before {
-            width: 6.4rem;
-            height: 3.8rem;
-            bottom: 1.5rem;
-            right: 3rem;
+            display: none;
         }
     }
 
     .cove_characteristic_content_txt {
-        font-size: 3rem;
+        font-size: 2.8rem;
+        line-height: 1;
         white-space: nowrap;
     }
 
@@ -826,10 +908,15 @@
 
     .cove_characteristic_inner {
         margin-inline: 2rem;
+        gap: 2.4rem;
     }
 
     .cove_characteristic_list_item_txt {
         max-width: unset;
+    }
+
+    .cove_characteristic_content {
+        margin-bottom: 4rem;
     }
 
     .cove_characteristic_list_item_img_wrap {
@@ -847,6 +934,21 @@
 
     .cove_characteristic_list_item {
         gap: 1rem;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .cove_characteristic_list_item_bg {
+        border-radius: 1.6rem;
+        padding: 1.6rem 1.6rem 2.4rem 1.6rem;
+
+        .cove_characteristic_list_item_txt {
+            width: 100%;
+        }
+
+        img {
+            height: 32rem;
+        }
     }
 
     .cove_characteristic_list_line {
@@ -877,13 +979,11 @@
     }
 }
 
-@media screen and (max-width:991px) {
-    .cove_location1_inner {
-        margin-bottom: -.7rem;
-    }
-}
-
 @media screen and (max-width:767px) {
+    .cove_location1_img {
+        height: 24rem;
+    }
+
     .cove_location1_logo {
         width: 15rem;
         position: unset;
@@ -894,16 +994,13 @@
     .cove_location1 {
         background-color: #FAF5EC;
     }
-
-    .cove_location1_img {
-        margin-top: 2rem;
-    }
 }
 
 /* location */
 .cove_location {
     background: url(/assets/img/bg_inspirationion.png) no-repeat top;
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position: right;
 }
 
 .cove_location_inner {
@@ -956,8 +1053,8 @@
 @media screen and (max-width:991px) {
     .cove_location_inner {
         flex-direction: column;
-        margin-top: 2rem;
-        margin-inline: 3rem;
+        padding-block: 10rem;
+        padding-inline: 3rem;
     }
 
     .cove_location_img {
@@ -976,7 +1073,7 @@
         width: 100%;
         margin-left: 0;
         padding: 0;
-        margin-bottom: 2rem;
+        margin-bottom: 4rem;
     }
 
     .cove_location_info_overlay {
@@ -985,14 +1082,33 @@
 
     .cove_location_info_title {
         margin-top: 0;
-        margin-bottom: 2rem;
+        margin-bottom: 6rem;
         text-align: center;
     }
 }
 
 @media screen and (max-width:767px) {
+    .cove_location_info_des {
+        color: black;
+    }
+    .cove_location, .cove_inspiration  {
+        background-position: 75%;
+    }
     .cove_location_inner {
         margin-inline: 2rem;
+        padding: 6rem 0;
+    }
+
+    .cove_location_info_title {
+        margin-bottom: 2.4rem;
+    }
+
+    .cove_location_info {
+        margin-bottom: 2.4rem;
+    }
+
+    .cove_location_img {
+        height: 40rem;
     }
 }
 
@@ -1032,30 +1148,40 @@
 
 @media screen and (max-width:767px) {
     .cove_utilities_title {
-        padding-top: 2rem;
+        padding-top: 0;
         margin-top: 0;
         margin-bottom: 0;
         position: unset;
         font-size: 3rem;
-        margin-bottom: 2rem;
+        margin-bottom: 2.4rem;
         color: #015533;
     }
 
     .cove_utilities {
         background-color: #FAF5EC;
-        padding-bottom: 3rem;
+        padding-block: 6rem;
+        padding-inline: 2rem;
     }
 
     .cove_utilities_img {
         margin: 0;
+        height: 32rem;
     }
 }
 
 /* production */
 .cove_production {
     background: url(/assets/img/bg_production.png) no-repeat top;
-    background-size: 100% 100%;
+    background-size: cover;
     position: relative;
+}
+
+.cove_production_btn_wrap {
+    display: flex;
+    gap: 3rem;
+    position: absolute;
+    right: 18.4rem;
+    top: 2.8rem;
 }
 
 .cove_production_high,
@@ -1064,11 +1190,10 @@
     background-color: #F2E9DC;
     border-radius: 1.5rem;
     border: 2px solid #015533;
-    position: absolute;
     color: #015533;
     cursor: pointer;
     z-index: 13;
-    top: 2.8rem;
+    position: relative;
     transition: all .4s ease;
     font-weight: 600;
     transition: color ease .4s, border-color ease .4s;
@@ -1104,13 +1229,6 @@
     }
 }
 
-.cove_production_next {
-    right: 18.4rem;
-}
-
-.cove_production_high {
-    right: 46.5rem;
-}
 
 .cove_production_content_title {
     font-family: "1FTV VIP Kiltier";
@@ -1163,7 +1281,7 @@
 
 .cove_production_highfloor_inner {
     padding-inline: 21rem;
-    margin-top: 4.5rem;
+    margin-top: 10.8rem;
 }
 
 .cove_production_highfloor_content {
@@ -1187,6 +1305,7 @@
 .cove_production_highfloor_title {
     border-bottom: 3px solid #A9805C;
     margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
 }
 
 .cove_production_highfloor_info_txt {
@@ -1286,7 +1405,7 @@
             background-color: #A9805C;
             clip-path: polygon(50% 100%, 0 0, 100% 0);
             /* Tam giác ngược */
-            bottom: -2.5rem;
+            bottom: -5.5rem;
             left: 40%;
         }
     }
@@ -1297,12 +1416,12 @@
     display: flex;
     gap: 9rem;
     padding-inline: 2.5rem;
-    padding-bottom: .3rem;
+    padding-bottom: 2rem;
 }
 
 .cove_production_lowfloor_inner {
     padding-inline: 21rem;
-    margin-top: 4.5rem;
+    margin-top: 10.8rem;
 
 }
 
@@ -1362,23 +1481,28 @@
 }
 
 @media screen and (max-width:991px) {
+
     .cove_production_content {
-        margin-top: 4rem;
-        padding-bottom: 5rem;
+        padding-block: 10rem;
         margin-left: 3rem;
+    }
+
+    .cove_production_btn_wrap {
+        right: 2rem;
+    }
+
+    .cove_production_highfloor,
+    .cove_production_lowfloor,
+    .cove_production_floor {
+        .cove_production_btn_wrap {
+            right: 10rem;
+            top: 3rem;
+        }
     }
 
     .cove_production_next,
     .cove_production_high {
         padding-inline: 2rem;
-    }
-
-    .cove_production_next {
-        right: 8rem;
-    }
-
-    .cove_production_high {
-        right: 28.5rem;
     }
 
     .cove_production_building {
@@ -1462,7 +1586,88 @@
     }
 }
 
-@media screen and (max-width:767px) {}
+@media screen and (max-width:767px) {
+    .cove_production_highfloor_content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .cove_production_highfloor_info {
+        padding-left: 2rem;
+    }
+
+    .cove_production_highfloor_info_txt {
+        &::before {
+            width: .6rem;
+            height: .6rem;
+            top: .6rem;
+        }
+    }
+    .cove_production_highfloor_list {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .cove_production_btn_wrap {
+        flex-direction: column;
+        gap: 1rem;
+        right: unset;
+        left: 2rem;
+        top: 3.2rem;
+
+        div {
+            width: max-content;
+            padding-inline: 1.6rem;
+        }
+    }
+
+    .cove_production_highfloor,
+    .cove_production_lowfloor,
+    .cove_production_floor {
+        padding-bottom: 6rem;
+        .cove_production_btn_wrap {
+            left: 2rem;
+            right: unset;
+            top: 2rem;
+        }
+    }
+    .cove_production_lowfloor_title {
+        gap: 4rem;
+    }
+    .cove_production_lowfloor_title_txt {
+        white-space: no-wrap;
+        flex: none;
+    }
+    .cove_production_floor_inner,
+    .cove_production_highfloor_inner,
+    .cove_production_lowfloor_inner {
+        padding-inline: 2rem;
+        margin-top: 17.8rem;
+        padding-bottom: 4rem;
+    }
+
+    .cove_production_highfloor_close,
+    .cove_production_lowfloor_close,
+    .cove_production_floor_close {
+        right: 1.4rem;
+        top: 2rem;
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .cove_production_next,
+    .cove_production_high {
+        padding-inline: 1.6rem;
+    }
+
+    .cove_production_highfloor_button,
+    .cove_production_lowfloor_button,
+    .cove_production_floor_button {
+        position: static;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+}
 
 /* cove_news */
 .cove_news {
@@ -1489,11 +1694,12 @@
 
     &.active {
         color: #C09C6B;
+
         .line-inner-hover {
             transform: scaleX(1);
             transform-origin: left;
         }
-            
+
     }
 
     &:hover {
@@ -1507,10 +1713,12 @@
     transition: .4s ease background-color, .4s ease color;
     overflow: hidden;
     position: relative;
+
     span {
         position: relative;
         z-index: 2;
     }
+
     &:after {
         content: '';
         position: absolute;
@@ -1519,16 +1727,20 @@
         transition: .4s ease all;
         background-color: #C09C6B;
     }
+
     &:hover:after {
         transform: translateX(0);
     }
+
     &:hover {
         color: white !important;
     }
 }
+
 .btn-bg {
     background-color: #C09C6B;
     transition: background-color .4s ease;
+
     &:hover {
         background-color: #806847;
     }
@@ -1634,6 +1846,10 @@
 }
 
 @media screen and (max-width:991px) {
+    .cove_news {
+        padding-block: 10rem;
+    }
+
     .cove_news_other {
         margin-inline: 3rem;
     }
@@ -1646,8 +1862,8 @@
     .cove_news_content {
         margin-top: 5rem;
         align-items: center;
-        padding-inline: 2rem;
-        gap: 2rem;
+        padding-inline: 3rem;
+        gap: 4rem;
     }
 
     .cove_news_content_info {
@@ -1682,9 +1898,27 @@
 }
 
 @media screen and (max-width:767px) {
+    .cove_production_overlay {
+        right: 0;
+    }
+    .cove_production_content {
+        padding-block: 16rem 6rem;
+        margin-left: 2rem;
+        padding-right: 2rem;
+    }
+    .cove_news {
+        padding-block: 6rem;
+    }
     .cove_news_content {
         background-color: unset;
+        gap: 0;
         flex-direction: column;
+        margin-bottom: 2.4rem;
+        padding-inline: 2rem;
+        margin-top: 3.2rem;
+    }
+    .cove_news_title_wrap {
+        gap: 2rem;
     }
 
     .cove_news_content_img {
@@ -1693,8 +1927,7 @@
 
     .cove_news_content_info {
         background-color: #015533;
-        margin-left: -2rem;
-        margin-right: -2rem;
+    
         padding-top: 2rem;
         padding-inline: 2rem;
     }
@@ -1706,9 +1939,22 @@
     .cove_news_other_info_seemore {
         margin-top: 1rem;
     }
-
+.cove_news_other_item {
+    width: 100%;
+}
+.cove_news_other_info {
+    padding-top: 6rem;
+}
+.cove_news_other_info_des {
+    margin-bottom: 2.8rem;
+}
+.cove_news_other_info_day {
+    margin-bottom: .4rem;
+}
     .cove_news_other {
+        padding-bottom: 0;
         margin-inline: 2rem;
+        flex-direction: column;
     }
 
     .cove_news_other_item {
@@ -1720,8 +1966,9 @@
 
 .cove_partner {
     background: url(/assets/img/bg-partner.webp) no-repeat top;
-    background-size: 100% 100%;
+    background-size: cover  ;
     padding-top: 14.8vh;
+
     * {
         color: #fff;
     }
@@ -1790,12 +2037,10 @@
         margin-inline: 8rem;
     }
 
+    .cove_partner_title1,
     .cove_partner_title2 {
-        margin-top: 5rem;
-    }
-
-    .cove_partner_title1 {
-        margin-top: 5rem;
+        margin-top: 8rem;
+        font-size: 2.4rem;
     }
 
     .cove_partner_list_partner {
@@ -1803,11 +2048,21 @@
         margin-inline: 4rem;
         flex-wrap: wrap;
         row-gap: 3rem;
-        padding-bottom: 7rem;
+        padding-bottom: 0;
+    }
+
+    .cove_partner {
+        padding-block: 10rem;
     }
 }
 
 @media screen and (max-width:767px) {
+    .cove_partner {
+        padding-block: 6rem;
+        .kl_container {
+            padding-inline: 2rem;
+        }
+    }
     .cove_partner_title2 {
         margin-inline: 2rem;
 
@@ -1823,17 +2078,32 @@
     .cove_partner_title {
         margin-top: 3rem;
         margin-bottom: 2rem;
+        font-size: 2.8rem;
     }
 
     .cove_partner_logo_img {
         margin-inline: 2rem;
-        width: auto;
+        width: 70%;
+        margin-left: 15%;
     }
-
-    .cove_partner_title2 {
-        margin: 3rem 2rem;
+.cove_production_building, .cove_production_hourse {
+    display: none;
+}
+    .cove_partner_title2, .cove_partner_title1 {
+        margin: 6rem 0rem 3.2rem 0;
+        font-size: 2rem;
     }
-
+.cove_partner_list_partner {
+    flex-direction: column;
+}
+.cove_partner_list_partner_item_img {
+    width: 24rem;
+    margin-inline: auto;
+}
+ .cove_partner_list_partner_item {
+    width: 100%;
+    max-width: 100%;
+}
     .cove_partner_list {
         margin-inline: 2rem;
     }
@@ -1849,23 +2119,21 @@
     .cove_partner_list_partner {
         margin-inline: 2rem;
         gap: 0;
-        row-gap: 2rem;
+        row-gap: 2.8rem;
         padding-bottom: 2rem;
     }
 
-    .cove_partner_list_partner_item {
-        width: 49%;
-    }
 
     .cove_partner_list_partner_item_txt {
-        font-size: .9rem;
+       margin-top: .6rem;
     }
 }
 
 /* contact */
 .cove_contact {
     background: url(/assets/img/bg_inspirationion.png) no-repeat top;
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position: right;
 }
 
 .cove_contact_list {
@@ -1878,9 +2146,11 @@
     padding-left: 16rem;
     padding-top: 14rem;
 }
+
 .cove_contact_inner_info_address_list_icon_path {
     transition: .4s ease all;
 }
+
 .cove_contact_list_img {
     width: 32.3rem;
 }
@@ -1896,11 +2166,12 @@
     background-color: white;
     color: #015533;
     transition: border-color .4s ease, background-color .4s ease, color .4s ease;
-    display: block;
+
     &:hover {
         color: white;
         border-color: #015533;
         background-color: #015533;
+
         .cove_contact_inner_info_address_list_icon_path {
             fill: #015533;
         }
@@ -2008,6 +2279,9 @@
 
 .cove_contact_list_img_wrap {
     margin-right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .img_list {
@@ -2015,11 +2289,28 @@
 }
 
 @media screen and (max-width:991px) {
+    .cove_contact_list_img_wrap {
+        gap: 2rem;
+    }
+
+    .img_list {
+        margin-bottom: 0;
+    }
+
+    .cove_contact_info_inner {
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    .cove_contact_list_img {
+        width: 28.3rem;
+    }
+
     .cove_contact_inner {
         padding-inline: 3rem;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        padding-block: 10rem 4rem;
     }
 
     .cove_contact_list {
@@ -2045,16 +2336,22 @@
 
     .cove_contact_inner_info_address_list_icon {
         width: 6rem;
+        height: 6rem;
     }
 }
 
 @media screen and (max-width:767px) {
+    .cove_contact {
+        background-position: 65%;
+}
     .cove_contact_list_img {
         width: 17rem;
     }
-
+.cove_contact_list_img_wrap {
+    row-gap: 1rem;
+}
     .cove_contact_inner {
-        padding: 4rem 2rem 0 2rem;
+        padding: 6rem 2rem 2rem 2rem;
     }
 
     .cove_contact_list_img_wrap {
@@ -2123,9 +2420,11 @@
     width: 5.5rem;
     cursor: pointer;
     display: block;
+    right: 0;
 }
 
 .cove_btn_list {
+    right: 0;
     position: absolute;
     top: 33rem;
 }
@@ -2147,6 +2446,14 @@
         right: 2rem;
         top: 2rem;
     }
+
+    .cove_characteristic_content {
+        margin-top: 0;
+    }
+
+    .cove_characteristic {
+        padding-block: 4rem 10rem;
+    }
 }
 
 @media screen and (max-width:767px) {
@@ -2165,4 +2472,95 @@
     .cove_btn_crolltop {
         bottom: 3rem;
     }
+
+    .cove_hero_slide {
+        height: 40rem;
+    }
+
+    .cove_hero_slide_item_txt_wrap {
+        width: 30rem;
+        left: 2rem !important;
+        right: unset !important;
+        top: 50% !important;
+        transform: translateY(-50%);
+
+        .txt_90 {
+            font-size: 4.4rem;
+        }
+    }
+
+    .cove_hero_overlay,
+    .cove_hero_overlay_right {
+        height: 100%;
+        opacity: .8;
+    }
+
+    .cove_characteristic {
+        padding-bottom: 6rem;
+    }
 }
+.main_menu{
+    position: fixed;
+    inset: 0;
+    background-color: #064C4D;
+    z-index: 1000;
+    opacity: 0;
+    transition: .4s ease all;
+    pointer-events: none;
+    &.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+.main_menu_logo{
+    width: 48rem;
+    left: 50%;
+    color: #FFF;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    svg{
+        width: 100%;
+        height: 100%;
+    }
+}
+.main_menu_nav{
+    position: absolute;
+    right: 12rem;
+    top: 18vh;
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+    gap: 4rem;
+}
+.main_menu_item_txt{
+    text-align: right;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.main_menu_item{
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    width: max-content;
+}
+@media screen and (max-width:991px) {
+    .main_menu_logo{
+        display: none;
+    }
+    .main_menu_nav{
+        display: flex;
+        align-items: center;
+        top: 50%;
+        right: unset;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        gap: 3rem;
+    }
+}
+@media screen and (max-width:767px) {
+    .main_menu_nav{
+        gap: 2rem;
+    }
+}
+
