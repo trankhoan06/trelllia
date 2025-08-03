@@ -11,7 +11,7 @@
 
 </head>
 
-<body>
+<body id="fullpage">
     <header class="header " id="header">
         <div class="kl_container">
             <div class="header_inner">
@@ -67,7 +67,7 @@
 
                 </a>
                 <div class="header_nav">
-                    <a href="#" class="header_nav_item hover-un">
+                    <a href="#" data-section-scroll-item="cam_hung" class="header_nav_item hover-un">
                         <div class="header_nav_item_txt">
                             Cảm hứng
                         </div>
@@ -75,7 +75,7 @@
                             <div class="line-inner line-inner-hover"></div>
                         </div>
                     </a>
-                    <a href="#" class="header_nav_item hover-un">
+                    <a href="#" data-section-scroll-item="dac_diem_noi_bat" class="header_nav_item hover-un">
                         <div class="header_nav_item_txt">
                             Đặc điểm nổi bật
                         </div>
@@ -83,7 +83,7 @@
                             <div class="line-inner line-inner-hover"></div>
                         </div>
                     </a>
-                    <a href="#" class="header_nav_item hover-un">
+                    <a href="#" data-section-scroll-item="vi_tri" class="header_nav_item hover-un">
                         <div class="header_nav_item_txt">
                             Vị trí & Tiện ích
                         </div>
@@ -91,7 +91,15 @@
                             <div class="line-inner line-inner-hover"></div>
                         </div>
                     </a>
-                    <a href="#" class="header_nav_item hover-un">
+                    <a href="#" data-section-scroll-item="mat_bang" class="header_nav_item hover-un">
+                        <div class="header_nav_item_txt">
+                            Mặt bằng
+                        </div>
+                        <div class="line line-md line-hover">
+                            <div class="line-inner line-inner-hover"></div>
+                        </div>
+                    </a>
+                    <a href="#" data-section-scroll-item="truyen_thong" class="header_nav_item hover-un">
                         <div class="header_nav_item_txt">
                             Truyền thông
                         </div>
@@ -99,7 +107,7 @@
                             <div class="line-inner line-inner-hover"></div>
                         </div>
                     </a>
-                    <a href="#" class="header_nav_item hover-un">
+                    <a href="#" data-section-scroll-item="lien_he" class="header_nav_item hover-un">
                         <div class="header_nav_item_txt">
                             Liên hệ
                         </div>
@@ -114,18 +122,18 @@
                         <div class="header_lang_space txt_25 txt_semi">/</div>
                         <div class="header_lang_item txt_25 txt_semi">EN</div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
     </header>
     <div class="navbar-toggler-icon-wrap">
-                        <div class="navbar-toggler-icon">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
+        <div class="navbar-toggler-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
     <section class="main_menu">
         <div class="main_menu_logo img_full">
             <svg width="250" height="25" viewBox="0 0 250 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -178,31 +186,37 @@
             </svg>
         </div>
         <div class="main_menu_nav">
-            <a href="#" class="main_menu_item hover-un">
+            <a href="#" data-section-scroll-item="cam_hung" class="main_menu_item hover-un">
                 <div class="main_menu_item_txt txt_32">Cảm hứng</div>
                 <div class="line line-md line-hover">
                     <div class="line-inner line-inner-hover"></div>
                 </div>
             </a>
-            <a href="#" class="main_menu_item hover-un">
+            <a href="#" data-section-scroll-item="dac_diem_noi_bat" class="main_menu_item hover-un">
                 <div class="main_menu_item_txt txt_32">Đặc điểm nổi bật</div>
                 <div class="line line-md line-hover">
                     <div class="line-inner line-inner-hover"></div>
                 </div>
             </a>
-            <a href="#" class="main_menu_item hover-un">
+            <a href="#" data-section-scroll-item="vi_tri" class="main_menu_item hover-un">
                 <div class="main_menu_item_txt txt_32">Vị trí & Tiện ích</div>
                 <div class="line line-md line-hover">
                     <div class="line-inner line-inner-hover"></div>
                 </div>
             </a>
-            <a href="#" class="main_menu_item hover-un">
+            <a href="#" data-section-scroll-item="mat_bang" class="main_menu_item hover-un">
+                <div class="main_menu_item_txt txt_32">Mặt bằng</div>
+                <div class="line line-md line-hover">
+                    <div class="line-inner line-inner-hover"></div>
+                </div>
+            </a>
+            <a href="#" data-section-scroll-item="truyen_thong" class="main_menu_item hover-un">
                 <div class="main_menu_item_txt txt_32">Truyền thông</div>
                 <div class="line line-md line-hover">
                     <div class="line-inner line-inner-hover"></div>
                 </div>
             </a>
-            <a href="#" class="main_menu_item hover-un">
+            <a href="#" data-section-scroll-item="lien_he" class="main_menu_item hover-un">
                 <div class="main_menu_item_txt txt_32">Liên hệ</div>
                 <div class="line line-md line-hover">
                     <div class="line-inner line-inner-hover"></div>
@@ -210,15 +224,16 @@
             </a>
         </div>
     </section>
-    <section class="cove_hero">
+    <section class="cove_hero full_screen">
         <div class="cove_hero_inner swiper mySwiper">
             <div class="cove_hero_slide swiper-wrapper">
-                <div class="cove_hero_slide_item swiper-slide img_fullfill">
+                <div class="cove_hero_slide_item swiper-slide img_fullfill df_hide_onload">
                     <div class="cove_hero_overlay"></div>
                     <img src="/assets/img/banner1.webp" alt="">
                     <div class="cove_hero_slide_item_txt_wrap left">
-                        <div class="cove_hero_slide_item_txt  txt_55">Nơi <span class="txt_90">Chạm </span>Ký Ức,</div>
-                        <div class="cove_hero_slide_item_txt  txt_55">Mở Tương Lai</div>
+                        <div class="cove_hero_slide_item_txt  txt_55 df_hide_onload">Nơi <span class="txt_90">Chạm
+                            </span>Ký Ức,</div>
+                        <div class="cove_hero_slide_item_txt  txt_55 df_hide_onload">Mở Tương Lai</div>
                     </div>
                 </div>
                 <div class="cove_hero_slide_item swiper-slide img_fullfill">
@@ -268,7 +283,7 @@
             </div>
         </div>
     </section>
-    <section class="cove_inspiration full_screen" data-section="green">
+    <section data-section-scroll="cam_hung" class="cove_inspiration full_screen section" data-section="green">
         <div class="kl_container flex">
             <div class="cove_inspiration_inner">
                 <div class="cove_inspiration_info">
@@ -284,26 +299,26 @@
                 </div>
                 <div class="cove_inspiration_list">
                     <div class="cove_inspiration_list_left cove_inspiration_list_item">
-                        <div class="cove_inspiration_list_img img_full">
-                            <img src="/assets/img/inspiration1.webp" alt="">
+                        <div class="cove_inspiration_list_img img_fullfill img_clip_path item4">
+                            <img src="/assets/img/cam_hung4.jpg" alt="">
                         </div>
-                        <div class="cove_inspiration_list_img img_full">
-                            <img src="/assets/img/inspiration2.webp" alt="">
+                        <div class="cove_inspiration_list_img img_fullfill img_clip_path item3">
+                            <img src="/assets/img/cam_hung3.jpg" alt="">
                         </div>
                     </div>
                     <div class="cove_inspiration_list_right cove_inspiration_list_item">
-                        <div class="cove_inspiration_list_img img_full">
-                            <img src="/assets/img/inspiration3.webp" alt="">
+                        <div class="cove_inspiration_list_img img_fullfill img_clip_path item1">
+                            <img src="/assets/img/cam_hung1.jpg" alt="">
                         </div>
-                        <div class="cove_inspiration_list_img img_full">
-                            <img src="/assets/img/inspiration4.webp" alt="">
+                        <div class="cove_inspiration_list_img img_fullfill img_clip_path item2">
+                            <img src="/assets/img/cam_hung2.jpg" alt="">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="cove_characteristic full_screen">
+    <section data-section-scroll="dac_diem_noi_bat" class="cove_characteristic full_screen section">
         <div class="cove_characteristic_bg">
             <div class="cove_characteristic_bg_item img_fullfill active">
                 <img src="./assets/img/bg_characteristic.webp" alt="">
@@ -329,8 +344,9 @@
                 </div>
                 <div class="cove_characteristic_inner">
                     <div class="cove_characteristic_list_item">
-                        <div class="cove_characteristic_list_item_bg img_fullfill active">
-                            <img src="/assets/img/characteristic1.webp" alt="">
+                        <div class="cove_characteristic_list_item_bg  active">
+                            <div class="cove_characteristic_list_item_bg_img img_fullfill"><img
+                                    src="/assets/img/characteristic1.webp" alt=""></div>
                             <div class="cove_characteristic_list_item_txt active txt_25">“Ốc đảo riêng” cuối trục <br>
                                 sống  của cả khu đô thị</div>
                         </div>
@@ -343,7 +359,7 @@
                     </div>
                     <div class="cove_characteristic_list_item" data-type="priviate">
                         <div class="cove_characteristic_list_item_bg img_fullfill">
-                            <img src="/assets/img/bg_characteristic2.webp" alt="">
+                            <img src="/assets/img/characteristic2.webp" alt="">
                             <div class="cove_characteristic_list_item_txt active txt_25">An ninh và riêng tư <br> vượt
                                 trội</div>
                         </div>
@@ -383,7 +399,7 @@
             </div>
         </div>
     </section>
-    <section class="cove_location1 full_screen" data-section="green">
+    <section data-section-scroll="vi_tri" class="cove_location1 full_screen section" data-section="green">
         <div class="kl_container">
             <div class="cove_location1_inner">
                 <div class="cove_location1_img img_fullfill">
@@ -392,7 +408,7 @@
             </div>
         </div>
     </section>
-    <section class="cove_location full_screen" data-section="green">
+    <section class="cove_location full_screen section" data-section="green">
         <div class="kl_container flex">
             <div class="cove_location_inner">
                 <div class="cove_location_img  img_fullfill">
@@ -416,7 +432,7 @@
             </div>
         </div>
     </section>
-    <section class="cove_utilities full_screen">
+    <section   class="cove_utilities full_screen section">
         <div class="kl_container">
             <div class="cove_utilities_title txt_title txt_65 txt_center">Tiện ích</div>
             <div class="cove_utilities_img img_fullfill">
@@ -424,26 +440,33 @@
             </div>
         </div>
     </section>
-    <section class="cove_production full_screen">
+    <section data-section-scroll="mat_bang" class="cove_production full_screen section">
         <div class="kl_container">
-            <div class="cove_production_btn_wrap">
-                <div class="cove_production_high"><span>Sản phẩm cao tầng</span></div>
-                <div class="cove_production_next"><span>Sản phẩm liền kế</span></div>
+            <div class="cove_production_btn_wrap first">
+                <div class="cove_production_high cove_production_btn_item"><span>Sản phẩm cao tầng</span></div>
+                <div class="cove_production_next cove_production_btn_item"><span>Sản phẩm liền kế</span></div>
             </div>
 
             <div class="cove_production_overlay"></div>
-            <div class="cove_production_building img_full">
-                <img src="/assets/img/bg_building.png" alt="">
+            <div class="cove_production_bg img_fullfill">
+                <img src="./assets/img/bg_production.png" alt="">
             </div>
-            <div class="cove_production_house img_full">
-                <img src="/assets/img/bg_house.png" alt="">
+            <div class="  cove_production_building img_full">
+            </div>
+            <div class=" cove_production_item cove_production_item_building img_full">
+            </div>
+            <div class=" cove_production_house img_full">
+            </div>
+            <div class="cove_production_item cove_production_item_house img_full">
             </div>
             <div class="cove_production_content">
                 <div class="cove_production_content_title txt_65">Sản phẩm</div>
-                <div class="cove_production_content_des txt txt-18">Trellia Cove – Gồm 3 Block căn hộ với 817 sản phẩm
+                <div class="cove_production_content_des txt txt-18 txt_justify">Trellia Cove – Gồm 3 Block căn hộ với
+                    817 sản phẩm
                     cao tầng &
                     24 sản phẩm liền kế thấp tầng.</div>
-                <div class="cove_production_content_des txt txt-18">Được bao bởi 2 mặt sông nước, với an ninh tuyệt đối,
+                <div class="cove_production_content_des txt txt-18 txt_justify">Được bao bởi 2 mặt sông nước, với an
+                    ninh tuyệt đối,
                     hệ thống
                     tiện ích riêng biệt đây được là phân khu compound duy nhất của Khu đô thị</div>
             </div>
@@ -464,37 +487,83 @@
             </div>
             <div class="cove_production_highfloor_inner">
                 <div class="cove_production_highfloor_title txt_title txt_50">CĂN HỘ LOẠI A</div>
-                <div class="cove_production_highfloor_content">
-                    <div class="cove_production_highfloor_area">
-                        <div class="cove_production_highfloor_area_txt">2PN+1WC</div>
-                        <div class="cove_production_highfloor_area_txt">DTTT: ~59.83m2</div>
-                        <div class="cove_production_highfloor_area_txt">DTLL: ~55.17m2</div>
-                    </div>
-                    <div class="cove_production_highfloor_info">
-                        <div class="cove_production_highfloor_info_txt">2 Phòng ngủ riêng biệt, 1 phòng tắm.</div>
-                        <div class="cove_production_highfloor_info_txt">P.Bếp tối ưu hoá diện tích kết nối với bàn ăn và
-                            phòng khách.</div>
-                        <div class="cove_production_highfloor_info_txt">Thiết kế đảm bảo ánh sáng & Thông gió tự nhiên.
+                <div class="swiper cove_production_highfloor_swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide ">
+                            <div class="cove_production_highfloor_content">
+                                <div class="cove_production_highfloor_area">
+                                    <div class="cove_production_highfloor_area_txt">2PN+1WC</div>
+                                    <div class="cove_production_highfloor_area_txt">DTTT: ~59.83m2</div>
+                                    <div class="cove_production_highfloor_area_txt">DTLL: ~55.17m2</div>
+                                </div>
+                                <div class="cove_production_highfloor_info">
+                                    <div class="cove_production_highfloor_info_txt">2 Phòng ngủ riêng biệt, 1 phòng tắm.
+                                    </div>
+                                    <div class="cove_production_highfloor_info_txt">P.Bếp tối ưu hoá diện tích kết nối
+                                        với
+                                        bàn ăn và
+                                        phòng khách.</div>
+                                    <div class="cove_production_highfloor_info_txt">Thiết kế đảm bảo ánh sáng & Thông
+                                        gió tự
+                                        nhiên.
+                                    </div>
+                                    <div class="cove_production_highfloor_info_txt">Căn hộ gọn gàng, hiệu quả, ấm cúng
+                                        cho
+                                        gia đình
+                                        trẻ. Căn hộ có view cảnh quan kênh và thành phố.</div>
+                                </div>
+                            </div>
+                            <div class="cove_production_highfloor_list">
+                                <div class="cove_production_highfloor_list_img img_full">
+                                    <img src="/assets/img/high-floor1.webp" alt="">
+                                </div>
+                                <div class="cove_production_highfloor_list_img1 img_full">
+                                    <img src="/assets/img/high-floor2.webp" alt="">
+                                </div>
+                            </div>
                         </div>
-                        <div class="cove_production_highfloor_info_txt">Căn hộ gọn gàng, hiệu quả, ấm cúng cho gia đình
-                            trẻ. Căn hộ có view cảnh quan kênh và thành phố.</div>
+                        <div class="swiper-slide ">
+                            <div class="cove_production_highfloor_content">
+                                <div class="cove_production_highfloor_area">
+                                    <div class="cove_production_highfloor_area_txt">2PN+1WC</div>
+                                    <div class="cove_production_highfloor_area_txt">DTTT: ~59.83m2</div>
+                                    <div class="cove_production_highfloor_area_txt">DTLL: ~55.17m2</div>
+                                </div>
+                                <div class="cove_production_highfloor_info">
+                                    <div class="cove_production_highfloor_info_txt">2 Phòng ngủ riêng biệt, 1 phòng tắm.
+                                    </div>
+                                    <div class="cove_production_highfloor_info_txt">P.Bếp tối ưu hoá diện tích kết nối
+                                        với
+                                        bàn ăn và
+                                        phòng khách.</div>
+                                    <div class="cove_production_highfloor_info_txt">Thiết kế đảm bảo ánh sáng & Thông
+                                        gió tự
+                                        nhiên.
+                                    </div>
+                                    <div class="cove_production_highfloor_info_txt">Căn hộ gọn gàng, hiệu quả, ấm cúng
+                                        cho
+                                        gia đình
+                                        trẻ. Căn hộ có view cảnh quan kênh và thành phố.</div>
+                                </div>
+                            </div>
+                            <div class="cove_production_highfloor_list">
+                                <div class="cove_production_highfloor_list_img img_full">
+                                    <img src="/assets/img/high-floor1.webp" alt="">
+                                </div>
+                                <div class="cove_production_highfloor_list_img1 img_full">
+                                    <img src="/assets/img/high-floor2.webp" alt="">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="cove_production_highfloor_list">
-                    <div class="cove_production_highfloor_list_img img_full">
-                        <img src="/assets/img/high-floor1.webp" alt="">
+                <div class="cove_production_highfloor_button">
+                    <div class="cove_production_floor_button_prev cove_production_highfloor_button_prev img_fullfill">
+                        <img src="/assets/img/prev.svg" alt="">
                     </div>
-                    <div class="cove_production_highfloor_list_img1 img_full">
-                        <img src="/assets/img/high-floor2.webp" alt="">
+                    <div class="cove_production_floor_button_next cove_production_highfloor_button_next img_fullfill">
+                        <img src="/assets/img/next.svg" alt="">
                     </div>
-                </div>
-            </div>
-            <div class="cove_production_highfloor_button">
-                <div class="cove_production_floor_button_prev img_fullfill">
-                    <img src="/assets/img/prev.svg" alt="">
-                </div>
-                <div class="cove_production_floor_button_next img_fullfill">
-                    <img src="/assets/img/next.svg" alt="">
                 </div>
             </div>
         </div>
@@ -512,39 +581,148 @@
                 </svg>
             </div>
             <div class="cove_production_lowfloor_inner">
-                <div class="cove_production_lowfloor_title">
-                    <div class="cove_production_lowfloor_title_txt txt_30 txt_title active" data-floor="floor1">MẪU D
-                    </div>
-                    <div class="cove_production_lowfloor_title_txt txt_30 txt_title" data-floor="floor2">MẪU A và A1
-                    </div>
-                    <div class="cove_production_lowfloor_title_txt txt_30 txt_title" data-floor="floor3">MẪU C và C1
-                    </div>
-                    <div class="cove_production_lowfloor_title_txt txt_30 txt_title" data-floor="floor4">MẪU D’</div>
-                </div>
-                <div class="cove_production_lowfloor_content active" data-floor="floor1">
-                    <div class="cove_production_lowfloor_content_item">
-                        <div class="cove_production_lowfloor_content_img img_full">
-                            <img src="/assets/img/lowfloor.webp" alt="">
+                <!-- Tabs -->
+                <div class=" cove_production_lowfloor_title_swiper">
+                    <div class="cove_production_lowfloor_title ">
+                        <div class=" cove_production_lowfloor_title_txt txt_30 txt_title active" data-floor="floor1">MẪU
+                            D
                         </div>
-                        <div class="cove_production_lowfloor_content_des txt_25 txt_center">Mặt bằng định vị trí căn mẫu
-                            D</div>
-                    </div>
-                    <div class="cove_production_lowfloor_content_item">
-                        <div class="cove_production_lowfloor_content_img img_full">
-                            <img src="/assets/img/lowfloor2.webp" alt="">
+                        <div class=" cove_production_lowfloor_title_txt txt_30 txt_title" data-floor="floor2">MẪU A và
+                            A1
                         </div>
-                        <div class="cove_production_lowfloor_content_des txt_25 txt_center">Mặt bằng trệt (Tầng 1)</div>
+                        <div class=" cove_production_lowfloor_title_txt txt_30 txt_title" data-floor="floor3">MẪU C và
+                            C1
+                        </div>
+                        <div class=" cove_production_lowfloor_title_txt txt_30 txt_title" data-floor="floor4">MẪU D’
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="cove_production_lowfloor_button">
-                <div class="cove_production_floor_button_prev img_fullfill">
-                    <img src="/assets/img/prev.svg" alt="">
+
+                <div class="cove_production_lowfloor_content_wrap">
+                    <!-- Content Floor 1 -->
+                    <div class="cove_production_lowfloor_content active" data-floor="floor1">
+                        <div class="swiper swiper-floor1">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="cove_production_lowfloor_content_img img_full">
+                                        <img src="/assets/img/lowfloor.webp" alt="">
+                                    </div>
+                                    <div class="cove_production_lowfloor_content_des txt_25 txt_center">Mặt bằng mẫu D
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="cove_production_lowfloor_content_img img_full">
+                                        <img src="/assets/img/lowfloor2.webp" alt="">
+                                    </div>
+                                    <div class="cove_production_lowfloor_content_des txt_25 txt_center">Tầng trệt mẫu D
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="cove_production_lowfloor_button">
+                            <div class="cove_production_floor_button_prev img_fullfill swiper-button-prev-floor1">
+                                <img src="/assets/img/prev.svg" alt="">
+                            </div>
+                            <div class="cove_production_floor_button_next img_fullfill swiper-button-next-floor1">
+                                <img src="/assets/img/next.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Floor 2 -->
+                    <div class="cove_production_lowfloor_content" data-floor="floor2">
+                        <div class="swiper swiper-floor2">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="cove_production_lowfloor_content_img img_full">
+                                        <img src="/assets/img/lowfloor.webp" alt="">
+                                    </div>
+                                    <div class="cove_production_lowfloor_content_des txt_25 txt_center">Mặt bằng mẫu D
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="cove_production_lowfloor_content_img img_full">
+                                        <img src="/assets/img/lowfloor2.webp" alt="">
+                                    </div>
+                                    <div class="cove_production_lowfloor_content_des txt_25 txt_center">Tầng trệt mẫu D
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cove_production_lowfloor_button">
+                            <div class="cove_production_floor_button_prev img_fullfill swiper-button-prev-floor2">
+                                <img src="/assets/img/prev.svg" alt="">
+                            </div>
+                            <div class="cove_production_floor_button_next img_fullfill swiper-button-next-floor2">
+                                <img src="/assets/img/next.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Floor 3 -->
+                    <div class="cove_production_lowfloor_content" data-floor="floor3">
+                        <div class="swiper swiper-floor3">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="cove_production_lowfloor_content_img img_full">
+                                        <img src="/assets/img/lowfloor.webp" alt="">
+                                    </div>
+                                    <div class="cove_production_lowfloor_content_des txt_25 txt_center">Mặt bằng mẫu D
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="cove_production_lowfloor_content_img img_full">
+                                        <img src="/assets/img/lowfloor2.webp" alt="">
+                                    </div>
+                                    <div class="cove_production_lowfloor_content_des txt_25 txt_center">Tầng trệt mẫu D
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cove_production_lowfloor_button">
+                            <div class="cove_production_floor_button_prev img_fullfill swiper-button-prev-floor3">
+                                <img src="/assets/img/prev.svg" alt="">
+                            </div>
+                            <div class="cove_production_floor_button_next img_fullfill swiper-button-next-floor3">
+                                <img src="/assets/img/next.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Floor 4 -->
+                    <div class="cove_production_lowfloor_content" data-floor="floor4">
+                        <div class="swiper swiper-floor4">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="cove_production_lowfloor_content_img img_full">
+                                        <img src="/assets/img/lowfloor.webp" alt="">
+                                    </div>
+                                    <div class="cove_production_lowfloor_content_des txt_25 txt_center">Mặt bằng mẫu D
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="cove_production_lowfloor_content_img img_full">
+                                        <img src="/assets/img/lowfloor2.webp" alt="">
+                                    </div>
+                                    <div class="cove_production_lowfloor_content_des txt_25 txt_center">Tầng trệt mẫu D
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cove_production_lowfloor_button">
+                            <div class="cove_production_floor_button_prev img_fullfill swiper-button-prev-floor4">
+                                <img src="/assets/img/prev.svg" alt="">
+                            </div>
+                            <div class="cove_production_floor_button_next img_fullfill swiper-button-next-floor4">
+                                <img src="/assets/img/next.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="cove_production_floor_button_next img_fullfill">
-                    <img src="/assets/img/next.svg" alt="">
-                </div>
+
             </div>
+
         </div>
         <div class="cove_production_floor">
 
@@ -560,21 +738,28 @@
                         stroke-linejoin="round" />
                 </svg></div>
             <div class="cove_production_floor_inner">
-                <div class="cove_production_floor_img img_full">
-                    <img src="/assets/img/floor.webp" alt="">
+                <div class="swiper production_floor1">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide cove_production_floor_img img_full">
+                            <img src="/assets/img/floor.webp" alt="">
+                        </div>
+                        <div class="swiper-slide cove_production_floor_img img_full">
+                            <img src="/assets/img/floor.webp" alt="">
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="cove_production_floor_button">
-                <div class="cove_production_floor_button_prev img_fullfill">
-                    <img src="/assets/img/prev.svg" alt="">
-                </div>
-                <div class="cove_production_floor_button_next img_fullfill">
-                    <img src="/assets/img/next.svg" alt="">
+                <div class="cove_production_floor_button">
+                    <div class="cove_production_floor_button_prev img_fullfill">
+                        <img src="/assets/img/prev.svg" alt="">
+                    </div>
+                    <div class="cove_production_floor_button_next img_fullfill">
+                        <img src="/assets/img/next.svg" alt="">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="cove_news full_screen " data-section="green">
+    <section data-section-scroll="truyen_thong" class="cove_news full_screen section " data-section="green">
         <div class="kl_container">
             <div class="cove_news_inner active">
                 <div class="cove_news_title_wrap">
@@ -591,90 +776,102 @@
                         </div>
                     </div>
                 </div>
-                <div class="cove_news_content">
-                    <div class="cove_news_content_img img_full">
-                        <img src="/assets/img/school.webp" alt="">
-                    </div>
-                    <div class="cove_news_content_info">
-                        <div class="cove_news_content_info_time txt_25">20/07/2025</div>
-                        <div class="cove_news_content_info_des txt_22">Trellia Cove Dấu Ấn Biệt Lập Giữa Lòng Đại Đô Thị
-                            Mizuki Park</div>
-                        <a href="#" class="cove_news_content_info_seemore btn-outline"><span>Xem thêm</span></a>
+                <div class="cove_news_tab_item active">
+                    <div class="cove_news_tab_content">
+                        <div class="cove_news_content">
+                            <div class="cove_news_content_img img_full">
+                                <img src="/assets/img/school.webp" alt="">
+                            </div>
+                            <div class="cove_news_content_info">
+                                <div class="cove_news_content_info_time txt_25">20/07/2025</div>
+                                <div class="cove_news_content_info_des txt_22">Trellia Cove Dấu Ấn Biệt Lập Giữa Lòng
+                                    Đại Đô Thị
+                                    Mizuki Park</div>
+                                <a href="#" class="cove_news_content_info_seemore btn-outline"><span>Xem thêm</span></a>
+                            </div>
+                        </div>
+                        <div class="cove_news_other active">
+                            <div class="cove_news_other_item">
+                                <div class="cove_news_other_img img_full">
+                                    <img src="/assets/img/tree.png" alt="">
+                                </div>
+                                <div class="cove_news_other_info">
+                                    <div class="cove_news_other_info_day txt_35">20</div>
+                                    <div class="cove_news_other_info_time txt_22">07/2025</div>
+                                    <div class="cove_news_other_info_des txt_22">Trellia Cove Chốn An Cư Lý Tưởng Cho
+                                        Cộng Đồng
+                                        Tinh Hoa</div>
+                                    <a href="#" class="cove_news_other_info_seemore btn-outline"><span>Xem
+                                            thêm</span></a>
+                                </div>
+                            </div>
+                            <div class="cove_news_other_item">
+                                <div class="cove_news_other_img img_full">
+                                    <img src="/assets/img/tree.png" alt="">
+                                </div>
+                                <div class="cove_news_other_info">
+                                    <div class="cove_news_other_info_day txt_35">20</div>
+                                    <div class="cove_news_other_info_time txt_22">07/2025</div>
+                                    <div class="cove_news_other_info_des txt_22">Trellia Cove Chốn An Cư Lý Tưởng Cho
+                                        Cộng Đồng
+                                        Tinh Hoa</div>
+                                    <a href="#" class="cove_news_other_info_seemore btn-outline"><span>Xem
+                                            thêm</span></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="cove_news_other">
-                    <div class="cove_news_other_item">
-                        <div class="cove_news_other_img img_full">
-                            <img src="/assets/img/tree.png" alt="">
+                <div class="cove_news_tab_item">
+                    <div class="cove_news_tab_content">
+                        <div class="cove_news_content">
+                            <div class="cove_news_content_img img_full">
+                                <img src="/assets/img/school.webp" alt="">
+                            </div>
+                            <div class="cove_news_content_info">
+                                <div class="cove_news_content_info_time txt_25">20/07/2025</div>
+                                <div class="cove_news_content_info_des txt_22">Trellia Cove Dấu Ấn Biệt Lập Giữa Lòng
+                                    Đại Đô Thị
+                                    Mizuki Park</div>
+                                <a href="#" class="cove_news_content_info_seemore btn-outline"><span>Xem thêm</span></a>
+                            </div>
                         </div>
-                        <div class="cove_news_other_info">
-                            <div class="cove_news_other_info_day txt_35">20</div>
-                            <div class="cove_news_other_info_time txt_22">07/2025</div>
-                            <div class="cove_news_other_info_des txt_22">Trellia Cove Chốn An Cư Lý Tưởng Cho Cộng Đồng
-                                Tinh Hoa</div>
-                            <a href="#" class="cove_news_other_info_seemore btn-outline"><span>Xem thêm</span></a>
-                        </div>
-                    </div>
-                    <div class="cove_news_other_item">
-                        <div class="cove_news_other_img img_full">
-                            <img src="/assets/img/tree.png" alt="">
-                        </div>
-                        <div class="cove_news_other_info">
-                            <div class="cove_news_other_info_day txt_35">20</div>
-                            <div class="cove_news_other_info_time txt_22">07/2025</div>
-                            <div class="cove_news_other_info_des txt_22">Trellia Cove Chốn An Cư Lý Tưởng Cho Cộng Đồng
-                                Tinh Hoa</div>
-                            <a href="#" class="cove_news_other_info_seemore btn-outline"><span>Xem thêm</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cove_news_inner">
-                <div class="cove_news_title_wrap">
-                    <div class="cove_news_title txt_35 active">Tin tức</div>
-                    <div class="cove_news_title txt_35">Thư viện</div>
-                </div>
-                <div class="cove_news_content">
-                    <div class="cove_news_content_img img_full">
-                        <img src="/assets/img/school.webp" alt="">
-                    </div>
-                    <div class="cove_news_content_info">
-                        <div class="cove_news_content_info_time txt_25">20/07/2025</div>
-                        <div class="cove_news_content_info_des txt_22">Trellia Cove Dấu Ấn Biệt Lập Giữa Lòng Đại Đô Thị
-                            Mizuki Park</div>
-                        <a href="#" class="cove_news_content_info_seemore"><span>Xem thêm</span></a>
-                    </div>
-                </div>
-                <div class="cove_news_other">
-                    <div class="cove_news_other_item">
-                        <div class="cove_news_other_img img_full">
-                            <img src="/assets/img/tree.png" alt="">
-                        </div>
-                        <div class="cove_news_other_info">
-                            <div class="cove_news_other_info_day txt_35">20</div>
-                            <div class="cove_news_other_info_time txt_22">07/2025</div>
-                            <div class="cove_news_other_info_des txt_22">Trellia Cove Chốn An Cư Lý Tưởng Cho Cộng Đồng
-                                Tinh Hoa</div>
-                            <a href="#" class="cove_news_other_info_seemore btn-outline"><span>Xem thêm</span></a>
-                        </div>
-                    </div>
-                    <div class="cove_news_other_item">
-                        <div class="cove_news_other_img img_full">
-                            <img src="/assets/img/tree.png" alt="">
-                        </div>
-                        <div class="cove_news_other_info">
-                            <div class="cove_news_other_info_day txt_35">20</div>
-                            <div class="cove_news_other_info_time txt_22">07/2025</div>
-                            <div class="cove_news_other_info_des txt_22">Trellia Cove Chốn An Cư Lý Tưởng Cho Cộng Đồng
-                                Tinh Hoa</div>
-                            <a href="#" class="cove_news_other_info_seemore btn-outline"><span>Xem thêm</span></a>
+                        <div class="cove_news_other active">
+                            <div class="cove_news_other_item">
+                                <div class="cove_news_other_img img_full">
+                                    <img src="/assets/img/tree.png" alt="">
+                                </div>
+                                <div class="cove_news_other_info">
+                                    <div class="cove_news_other_info_day txt_35">20</div>
+                                    <div class="cove_news_other_info_time txt_22">07/2025</div>
+                                    <div class="cove_news_other_info_des txt_22">Trellia Cove Chốn An Cư Lý Tưởng Cho
+                                        Cộng Đồng
+                                        Tinh Hoa</div>
+                                    <a href="#" class="cove_news_other_info_seemore btn-outline"><span>Xem
+                                            thêm</span></a>
+                                </div>
+                            </div>
+                            <div class="cove_news_other_item">
+                                <div class="cove_news_other_img img_full">
+                                    <img src="/assets/img/tree.png" alt="">
+                                </div>
+                                <div class="cove_news_other_info">
+                                    <div class="cove_news_other_info_day txt_35">20</div>
+                                    <div class="cove_news_other_info_time txt_22">07/2025</div>
+                                    <div class="cove_news_other_info_des txt_22">Trellia Cove Chốn An Cư Lý Tưởng Cho
+                                        Cộng Đồng
+                                        Tinh Hoa</div>
+                                    <a href="#" class="cove_news_other_info_seemore btn-outline"><span>Xem
+                                            thêm</span></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="cove_partner full_screen">
+    <section class="cove_partner full_screen section">
         <div class="kl_container">
             <div class="cove_partner_title txt_center txt_35">KHU ĐÔ THỊ TÍCH HỢP MIZUKI PARK</div>
             <div class="cove_partner_logo_img img_full">
@@ -722,29 +919,29 @@
             </div>
         </div>
     </section>
-    <footer class="cove_contact" data-section="green">
+    <footer data-section-scroll="lien_he" class="cove_contact full_screen section" data-section="green">
         <div class="kl_container">
             <div class="cove_contact_inner">
                 <div class="cove_contact_list">
                     <div class="cove_contact_list_img_wrap">
-                        <div class="cove_contact_list_img img_list img_full">
-                            <img src="/assets/img/contact1.png" alt="">
+                        <div class="cove_contact_list_img img_list img_full img_clip_path">
+                            <img src="/assets/img/footer1.jpg" alt="">
                         </div>
-                        <div class="cove_contact_list_img img_full">
-                            <img src="/assets/img/contact2.png" alt="">
+                        <div class="cove_contact_list_img img_full img_clip_path">
+                            <img src="/assets/img/footer2.jpg" alt="">
                         </div>
                     </div>
                     <div class="cove_contact_list_img_wrap">
-                        <div class="cove_contact_list_img img_full">
-                            <img src="/assets/img/contact3.png" alt="">
+                        <div class="cove_contact_list_img img_full img_clip_path">
+                            <img src="/assets/img/footer3.jpg" alt="">
                         </div>
-                        <div class="cove_contact_list_img img_full">
-                            <img src="/assets/img/contact4.png" alt="">
+                        <div class="cove_contact_list_img img_full img_clip_path">
+                            <img src="/assets/img/footer4.jpg" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="cove_contact_info">
-                    <div class="cove_contact_info_title txt_55">Liên hệ</div>
+                    <div class="cove_contact_info_title txt_55 txt_title">Liên hệ</div>
                     <div class="cove_contact_info_inner">
                         <div class="cove_contact_inner_info_form">
                             <input placeholder="Họ tên (*)" type="text" id="name" name="name" required>
@@ -756,13 +953,13 @@
                         </div>
                         <div class="cove_contact_inner_info_address">
                             <div class="cove_contact_inner_info_address_title txt_22">Hotline</div>
-                            <div class="cove_contact_inner_info_address_title txt_22">(84.28) 54 16 17 18</div>
-                            <div class="cove_contact_inner_info_address_title1">CÔNG TY CỔ PHẦN ĐẦU TƯ NAM LONG </div>
+                            <a href="tel:0902000895" class="cove_contact_inner_info_address_title txt_22">0902 000 895</a>
+                            <div class="cove_contact_inner_info_address_title1 ">CÔNG TY CỔ PHẦN ĐẦU TƯ NAM LONG </div>
                             <div class="cove_contact_inner_info_address_des">Số 6 Nguyễn Khắc Viện, P. Tân Mỹ, TP. Hồ
                                 Chí Minh</div>
-                            <a class="cove_contact_inner_info_address_ggmap btn-bg" href="#">Google map</a>
+                            <a class="cove_contact_inner_info_address_ggmap btn-bg"  href="https://maps.app.goo.gl/Uyza95g8HBkj3ZxWA?g_st=ipc">Google map</a>
                             <div class="cove_contact_inner_info_address_list">
-                                <a href="#" class="cove_contact_inner_info_address_list_icon img_full">
+                                <a href="https://www.facebook.com/share/17Boo548tQ/?mibextid=wwXIfr" class="cove_contact_inner_info_address_list_icon img_full">
                                     <svg width="100%" viewBox="0 0 40 40" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -771,7 +968,7 @@
                                     </svg>
 
                                 </a>
-                                <a href="#" class="cove_contact_inner_info_address_list_icon img_full">
+                                <a href="https://youtube.com/playlist?list=PLHLDo_d930aM-NimkVKTvcR4BwNpqc4yp&si=sKuwQc85bHm7yq8d" class="cove_contact_inner_info_address_list_icon img_full">
                                     <svg width="100%" viewBox="0 0 40 40" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -783,7 +980,7 @@
                                     </svg>
 
                                 </a>
-                                <a href="#" class="cove_contact_inner_info_address_list_icon img_full">
+                                <a href="https://360.namlongvn.com/mizuki/" class="cove_contact_inner_info_address_list_icon img_full">
                                     <svg width="100%" viewBox="0 0 40 40" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -877,10 +1074,21 @@
             <img src="/assets/img/icon_crolltop.svg" alt="">
         </div>
     </section>
+    <svg width="0" height="0" viewBox="0 0 20 20">
+        <defs>
+            <clipPath id="cam_hung1" clipPathUnits="objectBoundingBox">
+                <path
+                    d="M0.945992 0.66014C0.93199 0.580639 0.93099 0.500384 0.943325 0.420882L1 0.0512564C1 -0.00224698 0.934323 1.37267e-05 0.934323 1.37267e-05L0.0658682 1.37267e-05C0.0658682 1.37267e-05 0.000191544 -0.00224697 0.000191544 0.0512564L0.0568669 0.420882C0.0692021 0.500384 0.0682019 0.580639 0.0541998 0.66014L0.000191544 0.96722C0.000191544 0.96722 -0.00647613 1 0.0588672 1H0.940991C1.00633 1 0.999667 0.96722 0.999667 0.96722L0.945658 0.66014H0.945992Z"
+                    fill="black" />
+            </clipPath>
+        </defs>
+    </svg>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+    <script src="./assets/js/core-animation/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="/assets/js/index.js"></script>
 </body>

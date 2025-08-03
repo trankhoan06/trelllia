@@ -39,7 +39,9 @@
   html.lenis, html.lenis body {
     height: auto;
   }
-
+.df_hide_onload {
+  opacity: 0;
+}
   .lenis.lenis-smooth {
     scroll-behavior: auto !important;
   }
@@ -62,6 +64,7 @@ body{
   margin: 0;
     color: #444444;
     font-size: 2rem;
+    line-height: 1.5;
     font-family: "Montserrat";
 }
 .img_full, .img_fullfill {
@@ -124,7 +127,7 @@ body{
 }
 .txt_35{
     font-size: 3.5rem;
-    line-height: .628em;
+    line-height: 1.3;
 }
 .txt_50{
   font-size: 5rem;
@@ -149,6 +152,7 @@ line-height: 1;
 .txt_title{
     color: #015533;
     font-family: "1FTV VIP Kiltier";
+    text-transform: uppercase;
 }
 .txt_justify{
     text-align: justify;
@@ -327,4 +331,7 @@ font-size: 4.5rem;
     position: absolute;
     bottom: 0;
     overflow: hidden;
+}
+.kv_line {
+  overflow: hidden;
 }
