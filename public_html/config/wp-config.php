@@ -20,7 +20,7 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'trelliatq_db');
+define('DB_NAME', 'tbstm_db');
 
 /** MySQL database username */
 define('DB_USER', 'root');
@@ -76,7 +76,7 @@ $table_prefix  = 'wp_trellia_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', false);
+define('WP_DEBUG', true);
 @ini_set( 'display_errors', 0 );
 
 set_time_limit(300);
@@ -91,10 +91,10 @@ define('DISALLOW_FILE_EDIT',true);
 define('GMAP_KEY', '');
 define( 'ALLOW_UNFILTERED_UPLOADS', true );
 define('SITE_VERSION', '1.0.21');
-define('SITE_NAME', 'Trellia');
+define('SITE_NAME', 'TBS');
 
-define('WP_HOME','https://trellia.tqdesign.vn/');
-define('WP_SITEURL','https://trellia.tqdesign.vn/');
+define('WP_HOME','https://tbs.themax.vn/');
+define('WP_SITEURL','https://tbs.themax.vn/');
 
 /* That's all, stop editing! Happy blogging. */
 

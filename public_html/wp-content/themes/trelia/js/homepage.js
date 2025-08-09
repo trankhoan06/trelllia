@@ -23,8 +23,15 @@ const mainScript = () => {
   function isInHeaderCheck(el) {
     const rect = $(el).get(0).getBoundingClientRect();
     const headerRect = $('.header').get(0).getBoundingClientRect();
-
-    return Math.abs(rect.top - headerRect.top) <= 2; // sai số 2px là chấp nhận được
+    if(viewport.w < 768) {
+      return (
+            rect.bottom >= 0 &&
+            rect.top - headerRect.height/3  <= 0
+        );
+    }
+    else {
+      return Math.abs(rect.top - headerRect.top) <= 2; 
+    }
   }
   let observer;
   if (viewport.w > 991) {
@@ -46,9 +53,9 @@ const mainScript = () => {
         scrollTo: sections[index],
         duration: .6,
         onComplete: () => {
-            gsap.delayedCall(0.2, () => {
-              isAnimating = false;
-              lenis.start();
+          gsap.delayedCall(0.2, () => {
+            isAnimating = false;
+            lenis.start();
           });
         }
       });
@@ -58,25 +65,25 @@ const mainScript = () => {
         trigger: panel,
         start: "top center",
         onEnter: () => {
-          if (!isAnimating){
+          if (!isAnimating) {
             currentIndex = i;
-          } 
+          }
         }
       });
     });
 
     // Observer chỉ tạo 1 lần (bên ngoài vòng lặp)
-     observer = Observer.create({
+    observer = Observer.create({
       target: window,
       type: "wheel,touch",
       onUp: () => {
-          console.log(isAnimating)
+        console.log(isAnimating)
         if (!document.querySelector('html.open-popup') && !isAnimating) {
           goToSection(currentIndex - 1);
         }
       },
       onDown: () => {
-          console.log(isAnimating)
+        console.log(isAnimating)
         if (!document.querySelector('html.open-popup') && !isAnimating) {
           goToSection(currentIndex + 1);
         }
@@ -129,6 +136,7 @@ const mainScript = () => {
     }
     toggleColorMode = (color) => {
       let elArr = Array.from($(`[data-section="${color}"]`));
+      console.log(elArr.some(function (el) { return isInHeaderCheck(el) }))
       if (elArr.some(function (el) { return isInHeaderCheck(el) })) {
         $('.header').addClass(`on-${color}`);
       }
@@ -235,9 +243,19 @@ const mainScript = () => {
   validationForm();
   const header = new Header();
   header.trigger();
+  let isScroll = false;
   lenis.on("scroll", function (inst) {
     header.toggleColorMode('green');
     header.toggleOnHide(inst);
+    if (!isScroll) {
+      isScroll = true;
+      $('.cove_news_tab_item_video iframe').each((idx, item) => {
+        let videoSrc = $(item).attr('data-src');
+        if (videoSrc) {
+          $(item).attr('src', videoSrc);
+        }
+      })
+    }
   });
 
   function swiperSlide() {
@@ -260,64 +278,67 @@ const mainScript = () => {
     });
   }
   swiperSlide()
- function lowFloorImg() {
-  const popupSelector = '.cove_production_lowfloor, .cove_production_highfloor, .cove_production_floor';
+  function lowFloorImg() {
+    const popupSelector = '.cove_production_lowfloor, .cove_production_highfloor, .cove_production_floor';
 
-  function isAnyPopupOpen() {
-    return $(popupSelector).is('.active');
-  }
-
-  function disableObserverIfWide() {
-    if (window.innerWidth > 991 && typeof observer !== 'undefined') {
-      observer.disable();
-      $('html').addClass('open-popup');
-      lenis.stop();
+    function isAnyPopupOpen() {
+      return $(popupSelector).is('.active');
     }
-  }
 
-  function enableObserverIfWide() {
-    if (window.innerWidth > 991 && typeof observer !== 'undefined') {
-      observer.enable();
-      $('html').removeClass('open-popup')
-      lenis.start();
+    function disableObserverIfWide() {
+      if (window.innerWidth > 991 && typeof observer !== 'undefined') {
+        observer.disable();
+        $('html').addClass('open-popup');
+        lenis.stop();
+      }
     }
-  }
 
-  $('.cove_production_building, .cove_production_next, .cove_production_high').on('click', function () {
-    disableObserverIfWide();
+    function enableObserverIfWide() {
+      if (window.innerWidth > 991 && typeof observer !== 'undefined') {
+        observer.enable();
+        $('html').removeClass('open-popup')
+        lenis.start();
+      }
+    }
 
-    if ($(this).hasClass('cove_production_high')) {
-      $(".cove_production_floor, .cove_production_lowfloor").removeClass("active");
-      $(".cove_production_highfloor").addClass("active");
-    } else if ($(this).hasClass('cove_production_next')) {
+    $('.cove_production_building, .cove_production_next, .cove_production_high').on('click', function () {
+      disableObserverIfWide();
+
+      if ($(this).hasClass('cove_production_high')) {
+        $(".cove_production_floor, .cove_production_lowfloor").removeClass("active");
+        $(".cove_production_highfloor").addClass("active");
+      } else if ($(this).hasClass('cove_production_next')) {
+        $(".cove_production_floor, .cove_production_highfloor").removeClass("active");
+        $(".cove_production_lowfloor").addClass("active");
+      } else {
+        $(".cove_production_floor").addClass("active");
+        $(".cove_production_highfloor, .cove_production_lowfloor").removeClass("active");
+      }
+    });
+    $('.cove_production_house ').on('click', function () {
       $(".cove_production_floor, .cove_production_highfloor").removeClass("active");
       $(".cove_production_lowfloor").addClass("active");
-    } else {
-      $(".cove_production_floor").addClass("active");
-      $(".cove_production_highfloor, .cove_production_lowfloor").removeClass("active");
-    }
-  });
+    })
+    $('.cove_production_lowfloor_close, .cove_production_highfloor_close, .cove_production_floor_close').on('click', function () {
+      $(this).closest(popupSelector).removeClass('active');
 
-  $('.cove_production_lowfloor_close, .cove_production_highfloor_close, .cove_production_floor_close').on('click', function () {
-    $(this).closest(popupSelector).removeClass('active');
+      setTimeout(() => {
+        if (!isAnyPopupOpen()) {
+          enableObserverIfWide();
+        }
+      }, 100);
+    });
 
-    setTimeout(() => {
-      if (!isAnyPopupOpen()) {
-        enableObserverIfWide();
-      }
-    }, 100);
-  });
+    $('.cove_production_lowfloor_title_txt').on('click', function () {
+      var selectedFloor = $(this).data('floor');
 
-  $('.cove_production_lowfloor_title_txt').on('click', function () {
-    var selectedFloor = $(this).data('floor');
+      $('.cove_production_lowfloor_title_txt').removeClass('active');
+      $(this).addClass('active');
 
-    $('.cove_production_lowfloor_title_txt').removeClass('active');
-    $(this).addClass('active');
-
-    $('.cove_production_lowfloor_content').removeClass('active');
-    $('.cove_production_lowfloor_content[data-floor="' + selectedFloor + '"]').addClass('active');
-  });
-}
+      $('.cove_production_lowfloor_content').removeClass('active');
+      $('.cove_production_lowfloor_content[data-floor="' + selectedFloor + '"]').addClass('active');
+    });
+  }
 
   lowFloorImg()
   function model() {
@@ -332,9 +353,12 @@ const mainScript = () => {
   }
   model()
 
-  const floorKeys = ['floor1', 'floor2', 'floor3', 'floor4'];
-  // Khởi tạo từng Swiper riêng
-  floorKeys.forEach(function (floor) {
+  $('.cove_production_lowfloor_content').each(function () {
+    const floor = $(this).data('floor');
+    if ($(`.swiper-${floor}`).find('.swiper-slide').length < 2) {
+      $(`.swiper-${floor}`).next('.cove_production_lowfloor_button').hide();
+      return;
+    }
     new Swiper('.swiper-' + floor, {
       slidesPerView: 1,
       spaceBetween: 0,
@@ -342,24 +366,114 @@ const mainScript = () => {
         nextEl: '.swiper-button-next-' + floor,
         prevEl: '.swiper-button-prev-' + floor,
       },
+      on: {
+        init(sw) { updateButtons(sw, floor); },
+        slideChange(sw) { updateButtons(sw, floor); },
+      }
     });
+    function updateButtons(sw, floor) {
+      const $prev = $('.swiper-button-prev-' + floor);
+      const $next = $('.swiper-button-next-' + floor);
+
+      // Đang ở đầu -> disable prev
+      $prev.toggleClass('is-disabled', sw.isBeginning);
+      // Đang ở cuối -> disable next
+      $next.toggleClass('is-disabled', sw.isEnd);
+    }
   });
   new Swiper('.production_floor1', {
     slidesPerView: 1,
     spaceBetween: 0,
     navigation: {
-      nextEl: '.cove_production_floor_button_next',
-      prevEl: '.cove_production_floor_button_prev',
+      nextEl: '.cove_production_floor  .cove_production_floor_button_next',
+      prevEl: '.cove_production_floor  .cove_production_floor_button_prev',
+    },
+    on: {
+      init: function () {
+        this.navigation.update(); // Cập nhật trạng thái button ngay từ đầu
+      },
+      slideChange: function () {
+        this.navigation.update();
+      },
+      reachEnd: function () {
+        this.navigation.update();
+      },
+      reachBeginning: function () {
+        this.navigation.update();
+      },
     },
   });
-  new Swiper('.cove_production_highfloor_swiper', {
+  // Tạo biến để lưu lại swiper instances
+  const highfloorTitleSwiper = new Swiper('.cove_production_highfloor_title_swiper', {
+    effect: "fade",
+    spaceBetween: 30,
+  });
+  const thu_vien_swiper = new Swiper('.cove_news_tab_item_inner_swiper', {
+    slidesPerView: 1.2,
+    spaceBetween: 16,
+    loop: true,
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      speed: 800,
+    breakpoints: {
+      768: {
+        initialSlide: 1,
+        slidesPerView: 1,
+        spaceBetween: 30,
+      }
+    },
+    //   navigation: {
+    //   nextEl: '.cove_news_tab_item_inner_swiper_next',
+    //   prevEl: '.cove_news_tab_item_inner_swiper_prev',
+    // },
+  });
+
+  const highfloorContentSwiper = new Swiper('.cove_production_highfloor_swiper', {
     slidesPerView: 1,
-    spaceBetween: 0,
+    spaceBetween: 30,
     navigation: {
-      nextEl: '.cove_production_highfloor_button_next',
-      prevEl: '.cove_production_highfloor_button_prev',
+      nextEl: '.cove_production_highfloor .cove_production_highfloor_button_next',
+      prevEl: '.cove_production_highfloor .cove_production_highfloor_button_prev',
     },
+    thumbs: {
+      swiper: highfloorTitleSwiper, // Kết nối controller
+    }
   });
+  let swiper_production = new Swiper('.cove_production_lowfloor_title_swiper .swiper', {
+    effect: "fade",
+    spaceBetween: 30,
+  });
+  $('.cove_production_select_value').on('click', function (e) {
+    $(this).next('.cove_production_select_list').toggleClass('active');
+  });
+  $('.cove_production_select_item').on('click', function (e) {
+    let index = $(this).index();
+    $('.cove_production_select_item').removeClass('active');
+    $(this).addClass('active');
+    let value = $(this).text();
+    $(this).closest('.cove_production_select').find('.cove_production_select_value').text(value);
+    console.log($(this).closest('.cove_production_highfloor').length)
+    if ($(this).closest('.cove_production_highfloor').length) {
+      highfloorContentSwiper.slideTo(index);
+    }
+    else if ($(this).closest('.cove_production_lowfloor').length) {
+      $('.cove_production_lowfloor_title_txt').eq(index).trigger('click');
+      $('.cove_production_lowfloor_title_txt').removeClass('active');
+      $('.cove_production_lowfloor_title_txt').eq(index).addClass('active');
+      swiper_production.slideTo(index);
+    }
+    $('.cove_production_select_list').removeClass('active');
+  })
+  $('.cove_news_tab_item_title').on('click', function () {
+    const $this = $(this);
+    const index = $this.index();
+    $('.cove_news_tab_item_title').removeClass('active');
+    $this.addClass('active');
+    $('.cove_news_tab_item_inner').removeClass('active');
+    $('.cove_news_tab_item_inner').eq(index).addClass('active');
+  })
   // Tab click handler
   $('.cove_production_lowfloor_title_txt').click(function () {
     const floor = $(this).data('floor');
@@ -370,15 +484,12 @@ const mainScript = () => {
     $('.cove_production_lowfloor_content').removeClass('active');
     $('.cove_production_lowfloor_content[data-floor="' + floor + '"]').addClass('active');
   });
-  if (viewport.w < 768) {
-    $('.cove_production_lowfloor_title_swiper').addClass('swiper')
-    $('.cove_production_lowfloor_title').addClass('swiper-wrapper')
-    $('.cove_production_lowfloor_title_txt').addClass('swiper-slide')
-    let swiper_production = new Swiper('.cove_production_lowfloor_title_swiper', {
-      slidesPerView: 'auto',
-      spaceBetween: 30,
-    });
-  }
+
+  // if (viewport.w < 768) {
+  //   $('.cove_production_lowfloor_title_swiper').addClass('swiper')
+  //   $('.cove_production_lowfloor_title').addClass('swiper-wrapper')
+  //   $('.cove_production_lowfloor_title_txt').addClass('swiper-slide')
+  // }
   $('[data-section-scroll-item]').on('click', function (e) {
     e.preventDefault();
     if ($('body').hasClass('menu-open')) {
@@ -407,7 +518,6 @@ const mainScript = () => {
     });
     tl
       .fromTo('.cove_hero_slide_item:first-child img', { scale: 1.4, autoAlpha: 1 }, { scale: 1, autoAlpha: 1, duration: 1.6, ease: 'power.out4' })
-      .fromTo('.cove_hero_slide_item:first-child .cove_hero_slide_item_txt .word', { autoAlpha: 0, yPercent: 100 }, { autoAlpha: 1, yPercent: 0, duration: .6, stagger: .02 }, '<=.6')
   }
   hero();
   function inspiration() {
@@ -459,49 +569,49 @@ const mainScript = () => {
         new FadeSplitText({ el: $('.cove_characteristic_content_txt ').get(0), onMask: true, isDisableRevert: true }),
       ]
     })
-    if(viewport.w > 991){
-    $('.cove_characteristic_list_item').each((idx, item) => {
-      if (idx == 0) {
-        new MasterTimeline({
-          triggerInit: $(item),
-          scrollTrigger: { trigger: $(item) },
-          tweenArr: [
-            new ScaleInset({ el: $(item).find('.cove_characteristic_list_item_bg_img').get(0) }),
-            new FadeSplitText({ el: $(item).find('.cove_characteristic_list_item_txt ').get(0), onMask: true, isDisableRevert: true })
-          ]
-        })
-      }
-      else if (idx == $('.cove_characteristic_list_item').length - 1) {
-        let tlItem = new gsap.timeline({
-          onComplete: () => {
-            if (viewport.w > 767) {
-              startAutoScrollCharacteristic();
+    if (viewport.w > 991) {
+      $('.cove_characteristic_list_item').each((idx, item) => {
+        if (idx == 0) {
+          new MasterTimeline({
+            triggerInit: $(item),
+            scrollTrigger: { trigger: $(item) },
+            tweenArr: [
+              new ScaleInset({ el: $(item).find('.cove_characteristic_list_item_bg_img').get(0) }),
+              new FadeSplitText({ el: $(item).find('.cove_characteristic_list_item_txt ').get(0), onMask: true, isDisableRevert: true })
+            ]
+          })
+        }
+        else if (idx == $('.cove_characteristic_list_item').length - 1) {
+          let tlItem = new gsap.timeline({
+            onComplete: () => {
+              if (viewport.w > 767) {
+                startAutoScrollCharacteristic();
+              }
             }
-          }
-        })
-        new MasterTimeline({
-          timeline: tlItem,
-          triggerInit: $(item),
-          scrollTrigger: { trigger: $(item) },
-          tweenArr: [
-            new ScaleInset({ el: $(item).find('.cove_characteristic_list_item_img').get(0) }),
-            new FadeSplitText({ el: $(item).find('.cove_characteristic_list_item_txt ').get(1), onMask: true, isDisableRevert: true }),
-            new ScaleLine({ el: $(item).find('.cove_characteristic_list_item_line').get(0) })
-          ]
-        })
-      }
-      else {
-        new MasterTimeline({
-          triggerInit: $(item),
-          scrollTrigger: { trigger: $(item) },
-          tweenArr: [
-            new ScaleInset({ el: $(item).find('.cove_characteristic_list_item_img').get(0) }),
-            new FadeSplitText({ el: $(item).find('.cove_characteristic_list_item_txt ').get(1), onMask: true, isDisableRevert: true }),
-            new ScaleLine({ el: $(item).find('.cove_characteristic_list_item_line').get(0) })
-          ]
-        })
-      }
-    })
+          })
+          new MasterTimeline({
+            timeline: tlItem,
+            triggerInit: $(item),
+            scrollTrigger: { trigger: $(item) },
+            tweenArr: [
+              new ScaleInset({ el: $(item).find('.cove_characteristic_list_item_img').get(0) }),
+              new FadeSplitText({ el: $(item).find('.cove_characteristic_list_item_txt ').get(1), onMask: true, isDisableRevert: true }),
+              new ScaleLine({ el: $(item).find('.cove_characteristic_list_item_line').get(0) })
+            ]
+          })
+        }
+        else {
+          new MasterTimeline({
+            triggerInit: $(item),
+            scrollTrigger: { trigger: $(item) },
+            tweenArr: [
+              new ScaleInset({ el: $(item).find('.cove_characteristic_list_item_img').get(0) }),
+              new FadeSplitText({ el: $(item).find('.cove_characteristic_list_item_txt ').get(1), onMask: true, isDisableRevert: true }),
+              new ScaleLine({ el: $(item).find('.cove_characteristic_list_item_line').get(0) })
+            ]
+          })
+        }
+      })
     }
     let itemText = new SplitType('.cove_characteristic_list_item_bg .cove_characteristic_list_item_txt ', { types: 'lines, words', lineClass: 'kv_line' });
     let autoCharacteristicInterval;
@@ -541,7 +651,10 @@ const mainScript = () => {
       autoCharacteristicInterval = setInterval(nextItem, 5000);
       nextItem();
     }
-
+    $('.cove_production_mat_bang').on('click', function () {
+      console.log('click mat bang')
+      $('.cove_production_floor ').addClass('active');
+    })
     // Xử lý click thủ công
     $('.cove_characteristic_list_item').on('click', function () {
       clearInterval(autoCharacteristicInterval);
@@ -645,7 +758,7 @@ const mainScript = () => {
       $('html').addClass('open-popup');
       let parent = $(this).closest(".news_item");
       let postId = parent.data("id");
-      if(viewport.w>991){
+      if (viewport.w > 991) {
         observer.disable();
       }
       $.ajax({
@@ -676,7 +789,7 @@ const mainScript = () => {
       lenis.start();
       $('html').removeClass('open-popup');
       $('.news_popup').removeClass('active');
-      if(viewport.w>991){
+      if (viewport.w > 991) {
         observer.enable();
       }
     })
@@ -684,11 +797,11 @@ const mainScript = () => {
       // Nếu click không nằm trong phần inner
       if (!$(e.target).closest('.news_popup_inner').length) {
         lenis.start();
-      $('html').removeClass('open-popup');
+        $('html').removeClass('open-popup');
         $('.news_popup').removeClass('active');
-        if(viewport.w>991){
-        observer.enable();
-      }
+        if (viewport.w > 991) {
+          observer.enable();
+        }
       }
     });
     new MasterTimeline({
@@ -704,6 +817,7 @@ const mainScript = () => {
 
       ]
     })
+
     $('.cove_news_other_item').each((idx, item) => {
       new MasterTimeline({
         triggerInit: '.cove_news_other ',
@@ -737,9 +851,33 @@ const mainScript = () => {
         new FadeSplitText({ el: $('.cove_partner_title2 ').get(0), onMask: true }),
         ...$('.cove_partner_list_item  ').map((idx, el) => new FadeIn({ el: el })),
         new FadeSplitText({ el: $('.cove_partner_title1  ').get(0), onMask: true }),
-        ...$('.cove_partner_list_partner_item  ').map((idx, el) => new FadeIn({ el: el })),
+        ...$('.cove_partner_list_partner_item  ').map((idx, el) => new FadeIn({ el: el, isDisableRevert: true })),
       ]
     })
+    var partnerSwiper = new Swiper(".cove_partner_list_partner_wrap", {
+      slidesPerView: 1,
+      spaceBetween: 35,
+      loop: false,
+       autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      speed: 600,
+      navigation: {
+        nextEl: ".button_partner_swiper_next",
+        prevEl: ".button_partner_swiper_prev",
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        991: {
+          slidesPerView: 4,
+          spaceBetween: 30,
+        },
+      },
+    });
   }
   partner();
   function footer() {

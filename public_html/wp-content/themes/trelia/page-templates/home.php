@@ -11,6 +11,13 @@
  * @since tbs 1.0
  */
 get_header();
+$pageID = get_queried_object_id();
+$mat_bang_list = tr_posts_field('mat_bang_list', $pageID);
+$cao_tang_list = tr_posts_field('cao_tang_list', $pageID);
+$thap_tang_list = tr_posts_field('thap_tang_list', $pageID);
+$thu_vien_video = tr_posts_field('thu_vien_video', $pageID);
+$thu_vien_list = tr_posts_field('thu_vien_list', $pageID);
+$thu_vien_files = tr_posts_field('thu_vien_files', $pageID);
 ?>
 <main class="mainpage">
     <section class="cove_hero section full_screen">
@@ -19,14 +26,39 @@ get_header();
                 <div class="cove_hero_slide_item swiper-slide img_fullfill ">
                     <div class="cove_hero_overlay"></div>
                     <img src="<?php echo get_template_directory_uri(); ?>/img/banner-hero.jpg" alt="">
-                    
+
                 </div>
-                
+
             </div>
             <div class="swiper-pagination"></div>
         </div>
     </section>
-
+    <section class="cove_model">
+        <div class="cove_model_inner">
+            <div class="cove_model_close">X</div>
+            <div class="cove_model_list">
+                <div class="cove_model_list_img img_fullfill  img_clip_path">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/footer3.jpg" alt="">
+                </div>
+                <div class="cove_model_list_img img_fullfill img_clip_path">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/footer4.jpg" alt="">
+                </div>
+            </div>
+            <div class="cove_model_form">
+                <div class="cove_model_form_title txt_title txt_65">Liên hệ</div>
+                <div class="cove_model_form_inner">
+                    <input placeholder="Họ tên" type="text" id="name" name="name" required>
+                    <input placeholder="Điện thoại" type="tel" id="phone" name="phone" required>
+                    <input placeholder="Email" type="email" id="email" name="email">
+                    <button class="cove_model_form_submit" type="submit">Gửi</button>
+                </div>
+                <div class="cove_model_form_tel">Hotline: 0902 000 895</div>
+                <div class="cove_model_form_subtitle">KHU ĐÔ THỊ TÍCH HỢP MIZUKI PARK</div>
+                <div class="cove_model_form_location">Đường Nguyễn Văn Linh, Xã Bình Hưng, TP. Hồ Chí Minh </div>
+                <a href="" class="cove_model_form_ggmap txt_center">Google map</a>
+            </div>
+        </div>
+    </section>
     <section data-section-scroll="cam_hung" class="cove_inspiration full_screen section" data-section="green">
         <div class="kl_container flex">
             <div class="cove_inspiration_inner">
@@ -51,15 +83,15 @@ get_header();
                             <img src="<?php echo get_template_directory_uri(); ?>/img/cam_hung4.jpg" alt="" loading="lazy">
                         </div>
                         <div class="cove_inspiration_list_img img_fullfill img_clip_path item3">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/cam_hung3.jpg" alt=""loading="lazy">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/cam_hung3.jpg" alt="" loading="lazy">
                         </div>
                     </div>
                     <div class="cove_inspiration_list_right cove_inspiration_list_item">
                         <div class="cove_inspiration_list_img img_fullfill img_clip_path item1">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/cam_hung1.jpg" alt=""loading="lazy">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/cam_hung1.jpg" alt="" loading="lazy">
                         </div>
                         <div class="cove_inspiration_list_img img_fullfill img_clip_path item2">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/cam_hung2.jpg" alt=""loading="lazy">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/cam_hung2.jpg" alt="" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -69,16 +101,16 @@ get_header();
     <section data-section-scroll="dac_diem_noi_bat" class="cove_characteristic full_screen section">
         <div class="cove_characteristic_bg">
             <div class="cove_characteristic_bg_item img_fullfill active">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/bg_characteristic.webp" alt=""loading="lazy">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/bg_characteristic.jpg" alt="" loading="lazy">
             </div>
             <div class="cove_characteristic_bg_item img_fullfill">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/bg_characteristic2.webp" alt=""loading="lazy">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/bg_characteristic2.jpg" alt="" loading="lazy">
             </div>
             <div class="cove_characteristic_bg_item img_fullfill">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/bg_characteristic3.webp" alt=""loading="lazy">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/bg_characteristic3.jpg" alt="" loading="lazy">
             </div>
             <div class="cove_characteristic_bg_item img_fullfill">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/bg_characteristic4.webp" alt=""loading="lazy">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/bg_characteristic4.jpg" alt="" loading="lazy">
             </div>
         </div>
         <div class="kl_container">
@@ -95,77 +127,60 @@ get_header();
                         <div class="cove_characteristic_list_item">
                             <div class="cove_characteristic_list_item_bg  active">
                                 <div class="cove_characteristic_list_item_bg_img img_fullfill"><img
-                                        src="<?php echo get_template_directory_uri(); ?>/img/characteristic1.webp"
+                                        src="<?php echo get_template_directory_uri(); ?>/img/bg_characteristic.jpg"
                                         alt=""></div>
-                                <div class="cove_characteristic_list_item_txt active txt_25">“Ốc đảo riêng” cuối
-                                    trục
+                                <div class="cove_characteristic_list_item_txt active txt_23">Thiết kế đặc trưng - 
                                     <br>
-                                    sống của cả khu đô thị
+                                    Dấu ấn văn hóa
                                 </div>
                             </div>
                             <div class="cove_characteristic_list_item_img img_full" data-type="building">
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/icon_characteristic1.svg"
                                     alt="">
                             </div>
-                            <div class="cove_characteristic_list_item_txt txt_25">“Ốc đảo riêng” cuối trục <br> sống
-                                của cả
-                                khu đô thị</div>
+                            <div class="cove_characteristic_list_item_txt txt_23">Thiết kế đặc trưng - 
+                                    <br>
+                                    Dấu ấn văn hóa</div>
                             <div class="cove_characteristic_list_item_line "></div>
                         </div>
                         <div class="cove_characteristic_list_item" data-type="priviate">
                             <div class="cove_characteristic_list_item_bg img_fullfill">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/characteristic2.webp" alt="">
-                                <div class="cove_characteristic_list_item_txt active txt_25">An ninh và riêng tư
-                                    <br>
-                                    vượt
-                                    trội
+                                <img src="<?php echo get_template_directory_uri(); ?>/img/bg_characteristic2.jpg" alt="">
+                                <div class="cove_characteristic_list_item_txt active txt_23">Sức sống hiện hữu - Giá trị<br> bảo chứng bởi Mizuki Park
                                 </div>
                             </div>
                             <div class="cove_characteristic_list_item_img active img_full">
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/icon_characteristic2.svg"
                                     alt="">
                             </div>
-                            <div class="cove_characteristic_list_item_txt active txt_25">An ninh và riêng tư <br>
-                                vượt
-                                trội
+                            <div class="cove_characteristic_list_item_txt active txt_23">Sức sống hiện hữu - Giá trị<br> bảo chứng bởi Mizuki Park
                             </div>
                             <div class="cove_characteristic_list_item_line "></div>
                         </div>
                         <div class="cove_characteristic_list_item" data-type="space">
                             <div class="cove_characteristic_list_item_bg img_fullfill">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/characteristic3.webp" alt="">
-                                <div class="cove_characteristic_list_item_txt active txt_25">Không gian sống biệt
-                                    lập
-                                    <br>và
-                                    ít bị xáo trộn
+                                <img src="<?php echo get_template_directory_uri(); ?>/img/bg_characteristic3.jpg" alt="">
+                                <div class="cove_characteristic_list_item_txt active txt_23">Compound độc tôn - <br>Đặc quyền “2 trong 1”
                                 </div>
                             </div>
                             <div class="cove_characteristic_list_item_img active img_full">
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/icon_characteristic3.svg"
                                     alt="">
                             </div>
-                            <div class="cove_characteristic_list_item_txt active txt_25">Không gian sống biệt lập
-                                <br>và
-                                ít
-                                bị xáo trộn
+                            <div class="cove_characteristic_list_item_txt active txt_23">Compound độc tôn - <br>Đặc quyền “2 trong 1”
                             </div>
                             <div class="cove_characteristic_list_item_line "></div>
                         </div>
                         <div class="cove_characteristic_list_item" data-type="global">
                             <div class="cove_characteristic_list_item_bg img_fullfill">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/characteristic4.webp" alt="">
-                                <div class="cove_characteristic_list_item_txt active txt_25">Hưởng trọn toàn bộ <br>
-                                    hệ
-                                    sinh
-                                    thái có sẵn</div>
+                                <img src="<?php echo get_template_directory_uri(); ?>/img/bg_characteristic4.jpg" alt="">
+                                <div class="cove_characteristic_list_item_txt active txt_23">Hệ tiện ích riêng biệt - <br>Cảm hứng trong từng <br>khoảnh khắc</div>
                             </div>
                             <div class="cove_characteristic_list_item_img active img_full">
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/icon_characteristic4.svg"
                                     alt="">
                             </div>
-                            <div class="cove_characteristic_list_item_txt active txt_25">Hưởng trọn toàn bộ <br> hệ
-                                sinh
-                                thái có sẵn</div>
+                            <div class="cove_characteristic_list_item_txt active txt_23">Hệ tiện ích riêng biệt - <br>Cảm hứng trong từng <br>khoảnh khắc</div>
                         </div>
                     </div>
                 </div>
@@ -177,7 +192,7 @@ get_header();
         <div class="kl_container">
             <div class="cove_location1_inner">
                 <div class="cove_location1_img img_fullfill ">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/location1.webp" alt="" class="on-dk" loading="lazy">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/MizukiMap.jpg" alt="" class="on-dk" loading="lazy">
                     <img src="<?php echo get_template_directory_uri(); ?>/img/vi_tri_img_mob.jpg" alt="" class="on-mob">
                 </div>
             </div>
@@ -214,9 +229,8 @@ get_header();
     </section>
     <section class="cove_utilities full_screen section">
         <div class="kl_container">
-            <div class="cove_utilities_title txt_title txt_65 txt_center">Tiện ích</div>
             <div class="cove_utilities_img img_fullfill">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/tienich.webp" alt="" loading="lazy">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/matbangtongthe-min.jpg" alt="" loading="lazy">
             </div>
         </div>
     </section>
@@ -254,8 +268,24 @@ get_header();
         </div>
         <div class="cove_production_highfloor" data-lenis-prevent>
             <div class="cove_production_btn_wrap">
+                <div class="cove_production_select">
+                    <div class="cove_production_select_value txt_20 txt_semi">Chọn mẫu căn hộ</div>
+                    <div class="cove_production_select_list">
+                        <?php
+                        if (!empty($cao_tang_list)) {
+                            foreach ($cao_tang_list as $item) {
+                                $title = $item['title']; // hoặc $item['image_url'] nếu dữ liệu đã là URL
+                        ?>
+                                <div class=" cove_production_select_item txt_20"><?php echo $title ?></div>
+                        <?php
+                            }
+                        }
+                        ?>
+                    </div>
+                </div>
                 <div class="cove_production_high active"><span>Căn hộ Trellia</span></div>
                 <div class="cove_production_next"><span>Nhà phố Trellia</span></div>
+                <div class="cove_production_mat_bang cove_production_btn_item"><span>Mặt bằng</span></div>
             </div>
             <div class="cove_production_highfloor_close">
                 <svg width="100%" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -267,83 +297,36 @@ get_header();
 
             </div>
             <div class="cove_production_highfloor_inner">
-                <div class="cove_production_highfloor_title txt_title txt_50">CĂN HỘ LOẠI A</div>
+                <div class="cove_production_highfloor_title_swiper swiper">
+                    <div class="swiper-wrapper">
+                        <?php
+                        if (!empty($cao_tang_list)) {
+                            foreach ($cao_tang_list as $item) {
+                                $title = $item['title']; // hoặc $item['image_url'] nếu dữ liệu đã là URL
+                        ?>
+                                <div class="swiper-slide cove_production_highfloor_title txt_title txt_35"><?php echo $title ?></div>
+                        <?php
+                            }
+                        }
+                        ?>
+                    </div>
+                </div>
                 <div class="swiper cove_production_highfloor_swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide ">
-                            <div class="cove_production_highfloor_content">
-                                <div class="cove_production_highfloor_area">
-                                    <div class="cove_production_highfloor_area_txt">2PN+1WC</div>
-                                    <div class="cove_production_highfloor_area_txt">DTTT: ~59.83m2</div>
-                                    <div class="cove_production_highfloor_area_txt">DTLL: ~55.17m2</div>
-                                </div>
-                                <div class="cove_production_highfloor_info">
-                                    <div class="cove_production_highfloor_info_txt">2 Phòng ngủ riêng biệt, 1 phòng
-                                        tắm.
+                        <?php
+                        if (!empty($cao_tang_list)) {
+                            foreach ($cao_tang_list as $item) {
+                                $image_url = wp_get_attachment_image_url($item['img'], 'full'); // hoặc $item['image_url'] nếu dữ liệu đã là URL
+                        ?>
+                                <div class="swiper-slide">
+                                    <div class="cove_production_highfloor_item img_fullfill">
+                                        <img src="<?= esc_url($image_url); ?>" alt="<?= esc_attr($item['title']); ?>" loading="lazy">
                                     </div>
-                                    <div class="cove_production_highfloor_info_txt">P.Bếp tối ưu hoá diện tích kết
-                                        nối
-                                        với
-                                        bàn ăn và
-                                        phòng khách.</div>
-                                    <div class="cove_production_highfloor_info_txt">Thiết kế đảm bảo ánh sáng &
-                                        Thông
-                                        gió tự
-                                        nhiên.
-                                    </div>
-                                    <div class="cove_production_highfloor_info_txt">Căn hộ gọn gàng, hiệu quả, ấm
-                                        cúng
-                                        cho
-                                        gia đình
-                                        trẻ. Căn hộ có view cảnh quan kênh và thành phố.</div>
                                 </div>
-                            </div>
-                            <div class="cove_production_highfloor_list">
-                                <div class="cove_production_highfloor_list_img img_full">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/img/high-floor1.webp" alt="" loading="lazy">
-                                </div>
-                                <div class="cove_production_highfloor_list_img1 img_full">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/img/high-floor2.webp" alt=""loading="lazy">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide ">
-                            <div class="cove_production_highfloor_content">
-                                <div class="cove_production_highfloor_area">
-                                    <div class="cove_production_highfloor_area_txt">2PN+1WC</div>
-                                    <div class="cove_production_highfloor_area_txt">DTTT: ~59.83m2</div>
-                                    <div class="cove_production_highfloor_area_txt">DTLL: ~55.17m2</div>
-                                </div>
-                                <div class="cove_production_highfloor_info">
-                                    <div class="cove_production_highfloor_info_txt">2 Phòng ngủ riêng biệt, 1 phòng
-                                        tắm.
-                                    </div>
-                                    <div class="cove_production_highfloor_info_txt">P.Bếp tối ưu hoá diện tích kết
-                                        nối
-                                        với
-                                        bàn ăn và
-                                        phòng khách.</div>
-                                    <div class="cove_production_highfloor_info_txt">Thiết kế đảm bảo ánh sáng &
-                                        Thông
-                                        gió tự
-                                        nhiên.
-                                    </div>
-                                    <div class="cove_production_highfloor_info_txt">Căn hộ gọn gàng, hiệu quả, ấm
-                                        cúng
-                                        cho
-                                        gia đình
-                                        trẻ. Căn hộ có view cảnh quan kênh và thành phố.</div>
-                                </div>
-                            </div>
-                            <div class="cove_production_highfloor_list">
-                                <div class="cove_production_highfloor_list_img img_full">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/img/high-floor1.webp" alt=""loading="lazy">
-                                </div>
-                                <div class="cove_production_highfloor_list_img1 img_full">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/img/high-floor2.webp" alt=""loading="lazy">
-                                </div>
-                            </div>
-                        </div>
+                        <?php
+                            }
+                        }
+                        ?>
                     </div>
                 </div>
                 <div class="cove_production_highfloor_button">
@@ -358,6 +341,22 @@ get_header();
         </div>
         <div class="cove_production_lowfloor" data-lenis-prevent>
             <div class="cove_production_btn_wrap">
+                 <div class="cove_production_select">
+                    <div class="cove_production_select_value txt_20 txt_semi">Chọn mẫu nhà phố</div>
+                    <div class="cove_production_select_list">
+                        <?php
+                         $low_floors = tr_posts_field('thap_tang_list', $pageID);
+                    foreach ($low_floors as $index => $floor) {
+                        $activeClass = $countTitle === 0 ? 'active' : '';
+                        $dataFloor = 'floor' . ($countTitle + 1);
+                        echo '<div class="cove_production_select_item txt_20 ' . $activeClass . '" data-floor="' . esc_attr($dataFloor) . '">';
+                        echo esc_html($floor['title']);
+                        echo '</div>';
+                        $countTitle++;
+                    }
+                        ?>
+                    </div>
+                </div>
                 <div class="cove_production_high"><span>Căn hộ Trellia</span></div>
                 <div class="cove_production_next active"><span>Nhà phố Trellia</span></div>
             </div>
@@ -370,167 +369,81 @@ get_header();
                 </svg>
             </div>
             <div class="cove_production_lowfloor_inner">
-                <!-- Tabs -->
-                <div class=" cove_production_lowfloor_title_swiper">
-                    <div class="cove_production_lowfloor_title ">
-                        <div class=" cove_production_lowfloor_title_txt txt_30 txt_title active" data-floor="floor1">MẪU
-                            D
-                        </div>
-                        <div class=" cove_production_lowfloor_title_txt txt_30 txt_title" data-floor="floor2">MẪU A
-                            và
-                            A1
-                        </div>
-                        <div class=" cove_production_lowfloor_title_txt txt_30 txt_title" data-floor="floor3">MẪU C
-                            và
-                            C1
-                        </div>
-                        <div class=" cove_production_lowfloor_title_txt txt_30 txt_title" data-floor="floor4">MẪU D’
-                        </div>
-                    </div>
-                </div>
+                <?php
+                $low_floors = tr_posts_field('thap_tang_list', $pageID);
 
-                <div class="cove_production_lowfloor_content_wrap">
-                    <!-- Content Floor 1 -->
-                    <div class="cove_production_lowfloor_content active" data-floor="floor1">
-                        <div class="swiper swiper-floor1">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="cove_production_lowfloor_content_img img_full">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/img/lowfloor.webp" alt=""loading="lazy">
-                                    </div>
-                                    <div class="cove_production_lowfloor_content_des txt_25 txt_center">Mặt bằng mẫu
-                                        D
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="cove_production_lowfloor_content_img img_full">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/img/lowfloor2.webp" loading="lazy"
-                                            alt="">
-                                    </div>
-                                    <div class="cove_production_lowfloor_content_des txt_25 txt_center">Tầng trệt
-                                        mẫu D
-                                    </div>
-                                </div>
-                            </div>
+                if (!empty($low_floors)) {
+                    // === SWIPER TITLE ===
+                    echo '<div class="cove_production_lowfloor_title_swiper">';
+                    echo '<div class="swiper swiper-title">';
+                    echo '<div class="swiper-wrapper cove_production_lowfloor_title">';
+                    $countTitle = 0;
+                    foreach ($low_floors as $index => $floor) {
+                        $activeClass = $countTitle === 0 ? 'active' : '';
+                        $dataFloor = 'floor' . ($countTitle + 1);
+                        echo '<div class="swiper-slide cove_production_lowfloor_title_txt txt_35 txt_title ' . $activeClass . '" data-floor="' . esc_attr($dataFloor) . '">';
+                        echo esc_html($floor['title']);
+                        echo '</div>';
+                        $countTitle++;
+                    }
 
-                        </div>
-                        <div class="cove_production_lowfloor_button">
-                            <div class="cove_production_floor_button_prev img_fullfill swiper-button-prev-floor1">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/prev.svg" alt="">
-                            </div>
-                            <div class="cove_production_floor_button_next img_fullfill swiper-button-next-floor1">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/next.svg" alt="">
-                            </div>
-                        </div>
-                    </div>
+                    echo '</div>'; // .swiper-wrapper
+                    echo '</div>'; // .swiper
+                    echo '</div>'; // .cove_production_lowfloor_title_swiper
 
-                    <!-- Content Floor 2 -->
-                    <div class="cove_production_lowfloor_content" data-floor="floor2">
-                        <div class="swiper swiper-floor2">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="cove_production_lowfloor_content_img img_full">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/img/lowfloor.webp" alt="" loading="lazy">
-                                    </div>
-                                    <div class="cove_production_lowfloor_content_des txt_25 txt_center">Mặt bằng mẫu
-                                        D
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="cove_production_lowfloor_content_img img_full">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/img/lowfloor2.webp" loading="lazy"
-                                            alt="">
-                                    </div>
-                                    <div class="cove_production_lowfloor_content_des txt_25 txt_center">Tầng trệt
-                                        mẫu D
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cove_production_lowfloor_button">
-                            <div class="cove_production_floor_button_prev img_fullfill swiper-button-prev-floor2" >
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/prev.svg" alt="">
-                            </div>
-                            <div class="cove_production_floor_button_next img_fullfill swiper-button-next-floor2">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/next.svg" alt="">
-                            </div>
-                        </div>
-                    </div>
+                    // === CONTENT SLIDES ===
+                    echo '<div class="cove_production_lowfloor_content_wrap">';
+                    $countFloor = 0;
+                    foreach ($low_floors as $index => $floor) {
+                        $dataFloor = 'floor' . ($countFloor + 1);
+                        $swiperClass = 'swiper-floor' . ($countFloor + 1);
+                        $prevBtn = 'swiper-button-prev-floor' . ($countFloor + 1);
+                        $nextBtn = 'swiper-button-next-floor' . ($countFloor + 1);
+                        $activeClass = $countFloor === 0 ? 'active' : '';
 
-                    <!-- Content Floor 3 -->
-                    <div class="cove_production_lowfloor_content" data-floor="floor3">
-                        <div class="swiper swiper-floor3">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="cove_production_lowfloor_content_img img_full">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/img/lowfloor.webp" alt="" loading="lazy">
-                                    </div>
-                                    <div class="cove_production_lowfloor_content_des txt_25 txt_center">Mặt bằng mẫu
-                                        D
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="cove_production_lowfloor_content_img img_full">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/img/lowfloor2.webp" loading="lazy"
-                                            alt="">
-                                    </div>
-                                    <div class="cove_production_lowfloor_content_des txt_25 txt_center">Tầng trệt
-                                        mẫu D
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cove_production_lowfloor_button">
-                            <div class="cove_production_floor_button_prev img_fullfill swiper-button-prev-floor3">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/prev.svg" alt="">
-                            </div>
-                            <div class="cove_production_floor_button_next img_fullfill swiper-button-next-floor3">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/next.svg" alt="">
-                            </div>
-                        </div>
-                    </div>
+                        echo '<div class="cove_production_lowfloor_content ' . $activeClass . '" data-floor="' . esc_attr($dataFloor) . '">';
+                        echo '<div class="swiper ' . esc_attr($swiperClass) . '">';
+                        echo '<div class="swiper-wrapper">';
 
-                    <!-- Content Floor 4 -->
-                    <div class="cove_production_lowfloor_content" data-floor="floor4">
-                        <div class="swiper swiper-floor4">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="cove_production_lowfloor_content_img img_full">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/img/lowfloor.webp" alt="" loading="lazy">
-                                    </div>
-                                    <div class="cove_production_lowfloor_content_des txt_25 txt_center">Mặt bằng mẫu
-                                        D
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="cove_production_lowfloor_content_img img_full">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/img/lowfloor2.webp" loading="lazy"
-                                            alt="">
-                                    </div>
-                                    <div class="cove_production_lowfloor_content_des txt_25 txt_center">Tầng trệt
-                                        mẫu D
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cove_production_lowfloor_button">
-                            <div class="cove_production_floor_button_prev img_fullfill swiper-button-prev-floor4">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/prev.svg" alt="">
-                            </div>
-                            <div class="cove_production_floor_button_next img_fullfill swiper-button-next-floor4">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/next.svg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        if (!empty($floor['prod_items'])) {
+                            foreach ($floor['prod_items'] as $slide) {
+                                $img_url = wp_get_attachment_image_url($slide['img'], 'full');
+                                echo '<div class="swiper-slide">';
+                                echo '  <div class="cove_production_lowfloor_content_img img_fullfill">';
+                                echo '      <img src="' . esc_url($img_url) . '" alt="" loading="lazy">';
+                                echo '  </div>';
+                                echo '</div>';
+                            }
+                        }
+
+                        echo '</div>'; // .swiper-wrapper
+                        echo '</div>'; // .swiper
+
+                        // Buttons
+                        echo '<div class="cove_production_lowfloor_button">';
+                        echo '  <div class="cove_production_floor_button_prev img_fullfill ' . esc_attr($prevBtn) . '">';
+                        echo '      <img src="' . get_template_directory_uri() . '/img/prev.svg" alt="" loading="lazy">';
+                        echo '  </div>';
+                        echo '  <div class="cove_production_floor_button_next img_fullfill ' . esc_attr($nextBtn) . '">';
+                        echo '      <img src="' . get_template_directory_uri() . '/img/next.svg" alt="">';
+                        echo '  </div>';
+                        echo '</div>';
+
+                        echo '</div>'; // .cove_production_lowfloor_content
+                        $countFloor++;
+                    }
+
+                    echo '</div>'; // .cove_production_lowfloor_content_wrap
+                }
+                ?>
 
             </div>
 
         </div>
-        <div class="cove_production_floor"data-lenis-prevent>
+        <div class="cove_production_floor" data-lenis-prevent>
 
             <div class="cove_production_btn_wrap">
-                <div class="cove_production_high"><span>Căn hộ Trellia</span></div>
+                <div class="cove_production_high active"><span>Căn hộ Trellia</span></div>
                 <div class="cove_production_next"><span>Nhà phố Trellia</span></div>
             </div>
             <div class="cove_production_floor_close"><svg width="100%" viewBox="0 0 20 20" fill="none"
@@ -543,24 +456,31 @@ get_header();
             <div class="cove_production_floor_inner">
                 <div class="swiper production_floor1">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide cove_production_floor_img img_full">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/floor.webp" alt="" loading="lazy">
-                        </div>
-                        <div class="swiper-slide cove_production_floor_img img_full">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/floor.webp" alt="" loading="lazy">
-                        </div>
+                        <?php
+                            if (!empty($mat_bang_list)) {
+                                foreach ($mat_bang_list as $item) {
+                                    $image_url = wp_get_attachment_image_url($item['img'], 'full'); // Nếu là ID
+                                    // Hoặc nếu đã là URL thì chỉ cần: $image_url = $item['img'];
+
+                                    echo '<div class="swiper-slide cove_production_floor_img img_full">';
+                                    echo '    <img src="' . esc_url($image_url) . '" alt="" loading="lazy">';
+                                    echo '</div>';
+                                }
+                            }
+                            ?>
+
+                            </div>
                     </div>
-                </div>
-                <div class="cove_production_floor_button">
-                    <div class="cove_production_floor_button_prev img_fullfill">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/prev.svg" alt="">
-                    </div>
-                    <div class="cove_production_floor_button_next img_fullfill">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/next.svg" alt="">
+                    <div class="cove_production_floor_button">
+                        <div class="cove_production_floor_button_prev img_fullfill">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/prev.svg" alt="">
+                        </div>
+                        <div class="cove_production_floor_button_next img_fullfill">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/next.svg" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
     <section data-section-scroll="truyen_thong" class="cove_news full_screen section " data-section="green">
         <div class="kl_container">
@@ -569,20 +489,19 @@ get_header();
                     <div class="cove_news_title txt_35 hover-un active">
                         <span>Tin tức</span>
                         <div class="line line-md line-hover">
-                            <div class="line-inner line-inner-hover"></div>
+                            <div class="line-inner line-md line-inner-hover"></div>
                         </div>
                     </div>
                     <div class="cove_news_title txt_35 hover-un">
                         <span>Thư viện</span>
                         <div class="line line-md line-hover">
-                            <div class="line-inner line-inner-hover"></div>
+                            <div class="line-inner line-md line-inner-hover"></div>
                         </div>
                     </div>
                 </div>
                 <?php
                 $categories = [
                     'tin-tuc'   => 'active', // tab đầu tiên active
-                    'thu-vien'  => ''
                 ];
 
                 foreach ($categories as $category_slug => $active_class) :
@@ -605,74 +524,149 @@ get_header();
                         $link  = get_the_permalink();
                         $post_id = get_the_ID();
                 ?>
-                <div class="cove_news_tab_item <?php echo $active_class; ?>">
-                    <!-- BÀI VIẾT MỚI NHẤT -->
-                    <div class="cove_news_content news_item" data-id="<?= $post_id ?>">
-                        <div class="cove_news_content_img img_full">
-                            <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($title); ?>" loading="lazy">
-                        </div>
-                        <div class="cove_news_content_info">
-                            <div class="cove_news_content_info_time txt_25">
-                                <?php echo esc_html($date); ?>
-                            </div>
-                            <div class="cove_news_content_info_des txt_22 news_item_title">
-                                <?php echo esc_html($title); ?>
-                            </div>
-                            <a href="<?php echo esc_url($link); ?>"
-                                class="cove_news_content_info_seemore news_item_more btn-outline"><span>Xem
-                                    thêm</span></a>
-                        
-                        </div>
-                    </div>
+                        <div class="cove_news_tab_item <?php echo $active_class; ?>">
+                            <!-- BÀI VIẾT MỚI NHẤT -->
+                            <div class="cove_news_content news_item" data-id="<?= $post_id ?>">
+                                <div class="cove_news_content_img img_fullfill">
+                                    <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($title); ?>" loading="lazy">
+                                </div>
+                                <div class="cove_news_content_info">
+                                    <div class="cove_news_content_info_time txt_25">
+                                        <?php echo esc_html($date); ?>
+                                    </div>
+                                    <div class="cove_news_content_info_des txt_22 news_item_title">
+                                        <?php echo esc_html($title); ?>
+                                    </div>
+                                    <a href="<?php echo esc_url($link); ?>"
+                                        class="cove_news_content_info_seemore news_item_more btn-outline"><span>Xem
+                                            thêm</span></a>
 
-                    <!-- CÁC BÀI VIẾT CÒN LẠI -->
-                    <div class="cove_news_other active">
-                        <?php
+                                </div>
+                            </div>
+
+                            <!-- CÁC BÀI VIẾT CÒN LẠI -->
+                            <div class="cove_news_other active">
+                                <?php
                                 while ($query->have_posts()) : $query->the_post();
                                     $thumb2 = get_the_post_thumbnail_url(get_the_ID(), 'large') ?: get_template_directory_uri() . '/img/tree.png';
-                                     $date2  = get_the_date('d/m/Y');
+                                    $date2  = get_the_date('d/m/Y');
                                     $title2 = get_the_title();
                                     $link2 = get_the_permalink();
-                                     $post_id2 = get_the_ID();
+                                    $post_id2 = get_the_ID();
                                 ?>
-                        <div class="cove_news_other_item news_item" data-id="<?= $post_id2 ?>">
-                            <div class="cove_news_other_img img_full">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/tree.png"
-                                    alt="<?php echo esc_attr($title2); ?>" loading="lazy">
-                            </div>
-                            <div class="cove_news_other_info">
-                                <div class="cove_news_other_info_day txt_25">
-                                    <?php echo esc_html($date2); ?>
-                                </div>
-                                <div class="cove_news_other_info_des txt_22 news_item_title">
-                                    <?php echo esc_html($title2); ?>
-                                </div>
-                                <a href="<?php echo esc_url($link2); ?>"
-                                    class="news_item_more cove_news_other_info_seemore btn-outline"><span>Xem
-                                        thêm</span></a>
+                                    <div class="cove_news_other_item news_item" data-id="<?= $post_id2 ?>">
+                                        <div class="cove_news_other_img img_full">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/img/tree.png"
+                                                alt="<?php echo esc_attr($title2); ?>" loading="lazy">
+                                        </div>
+                                        <div class="cove_news_other_info">
+                                            <div class="cove_news_other_info_day txt_25">
+                                                <?php echo esc_html($date2); ?>
+                                            </div>
+                                            <div class="cove_news_other_info_des txt_22 news_item_title">
+                                                <?php echo esc_html($title2); ?>
+                                            </div>
+                                            <a href="<?php echo esc_url($link2); ?>"
+                                                class="news_item_more cove_news_other_info_seemore btn-outline"><span>Xem
+                                                    thêm</span></a>
+                                        </div>
+                                    </div>
+                                <?php endwhile; ?>
                             </div>
                         </div>
-                        <?php endwhile; ?>
-                    </div>
-                </div>
                 <?php
                         wp_reset_postdata();
                     endif;
                 endforeach;
                 ?>
+                <div class="cove_news_tab_item">
+                    <div class="cove_news_tab_item_title_wrap">
+                        <div class="txt txt_28 txt_title cove_news_tab_item_title hover-un active">
+                            <span>Video</span>
+                            <div class="line line-md line-hover">
+                                <div class="line-inner  line-inner-hover"></div>
+                            </div>
+                        </div>
+                        <div class="txt txt_28 txt_title cove_news_tab_item_title hover-un">
+                            <span>Hình ảnh</span>
+                            <div class="line line-md line-hover">
+                                <div class="line-inner  line-inner-hover"></div>
+                            </div>
+                        </div>
+                        <div class="txt txt_28 txt_title cove_news_tab_item_title hover-un">
+                            <span>Tài liệu</span>
+                            <div class="line line-md line-hover">
+                                <div class="line-inner line-inner-hover"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cove_news_tab_item_tab">
+                        <div class="cove_news_tab_item_inner active">
+                            <div class="cove_news_tab_item_video">
+                                <iframe width="100%" height="500" data-src="<?php echo $thu_vien_video ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="cove_news_tab_item_inner">
+                            <div class="cove_news_tab_item_inner_swiper swiper">
+                                <div class="swiper-wrapper">
+                                    <?php
+                                    if (!empty($thu_vien_list)) {
+                                        foreach ($thu_vien_list as $item) {
+                                            $img_url = wp_get_attachment_image_url($item['img'], 'full'); // Nếu 'img' là ID
+                                            // Nếu img là URL, thì dùng: $img_url = $item['img'];
 
+                                            echo '<div class="swiper-slide new_slide img_fullfill">';
+                                            echo '  <img src="' . esc_url($img_url) . '" alt="" loading="lazy">';
+                                            echo '   <div class="new_slide_txt txt_bold txt_22 txt_uppercase">Hình ảnh tiện ích</div>';
+                                            echo '   <div class="new_slide_overlay"></div>';
+                                            echo '</div>';
+                                        }
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <!-- <div class="cove_production_highfloor_button">
+                                <div class="cove_production_floor_button_prev cove_news_tab_item_inner_swiper_prev img_fullfill">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/img/prev.svg" alt="">
+                                </div>
+                                <div class="cove_production_floor_button_next cove_news_tab_item_inner_swiper_next img_fullfill">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/img/next.svg" alt="">
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="cove_news_tab_item_inner">
+                            <div class="cove_news_tab_item_file">
+                                <?php
+
+                                if (!empty($thu_vien_files)) {
+                                    foreach ($thu_vien_files as $item) {
+                                        $file_url = isset($item['file']) ? esc_url($item['file']) : '#';
+                                        $title = !empty($item['title']) ? esc_html($item['title']) : 'Tài liệu';
+                                        $img_url = wp_get_attachment_image_url($item['img'], 'full'); // nếu là ID
+                                        // hoặc nếu img là URL: $img_url = esc_url($item['img']);
+
+                                        echo '<a class="thu-vien-card" href="' . $file_url . '" download>';
+                                        echo '  <div class="thu-vien-card-img img_full">';
+                                        echo '    <img src="' . esc_url($img_url) . '" alt="' . $title . '" loading="lazy">';
+                                        echo '  </div>';
+                                        echo '</a>';
+                                    }
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
     <section class="cove_partner full_screen section">
         <div class="kl_container">
-            <div class="cove_partner_title txt_center txt_35">KHU ĐÔ THỊ TÍCH HỢP MIZUKI PARK</div>
+            <div class="cove_partner_title txt_center txt_35">KHU ĐÔ THỊ TÍCH HỢP</div>
             <div class="cove_partner_logo_img img_full">
                 <img src="<?php echo get_template_directory_uri(); ?>/img/logo_partner.png" alt="">
             </div>
-            <div class="cove_partner_title2 txt_center">Được phát triển bởi <br> các nhà đầu tư uy tín từ việt nam
-                và
-                nhật bản</div>
+            <div class="cove_partner_title2 txt_center">Được phát triển bởi</div>
             <div class="cove_partner_list">
                 <div class="cove_partner_list_item img_full">
                     <img src="<?php echo get_template_directory_uri(); ?>/img/logo_namlong.png" alt="">
@@ -681,37 +675,67 @@ get_header();
                     <img src="<?php echo get_template_directory_uri(); ?>/img/logo_nnr.png" alt="">
                 </div>
                 <div class="cove_partner_list_item img_full">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/logo_hankyu.png" alt="">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/logo_corp.png" alt="">
                 </div>
             </div>
             <div class="cove_partner_title1 txt_center txt_28">Đối tác phát triển dự án</div>
-            <div class="cove_partner_list_partner">
-                <div class="cove_partner_list_partner_item">
-                    <div class="cove_partner_list_partner_item_img img_full">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/doi-tac-xay-dung.png" alt="">
+            <div class="cove_partner_list_inner">
+                <div class="cove_partner_list_partner_wrap swiper">
+                    <div class="cove_partner_list_partner swiper-wrapper">
+                        <div class="cove_partner_list_partner_item swiper-slide">
+                            <div class="cove_partner_list_partner_item_img img_full">
+                                <img src="/wp-content/uploads/2025/08/logo-slcc.png" alt="">
+                            </div>
+                            <div class="cove_partner_list_partner_item_txt txt_center txt_16">Đối tác xây dựng</div>
+                        </div>
+                        <div class="cove_partner_list_partner_item swiper-slide">
+                            <div class="cove_partner_list_partner_item_img img_full">
+                                <img src="/wp-content/uploads/2025/08/nagecco.png" alt="">
+                            </div>
+                            <div class="cove_partner_list_partner_item_txt txt_center txt_16">Tư vấn quy hoạch cảnh quan
+                            </div>
+                        </div>
+                        <div class="cove_partner_list_partner_item swiper-slide">
+                            <div class="cove_partner_list_partner_item_img img_full">
+                                <img src="/wp-content/uploads/2025/08/newtecons.png" alt="">
+                            </div>
+                            <div class="cove_partner_list_partner_item_txt txt_center txt_16">Thiết kế kiến trúc căn hộ
+                            </div>
+                        </div>
+                        <div class="cove_partner_list_partner_item swiper-slide">
+                            <div class="cove_partner_list_partner_item_img img_full">
+                                <img src="/wp-content/uploads/2025/08/belt-collins.png" alt="">
+                            </div>
+                            <div class="cove_partner_list_partner_item_txt txt_center txt_16">Tư vấn thiết kế hạ tầng</div>
+                        </div>
+                        <div class="cove_partner_list_partner_item swiper-slide">
+                            <div class="cove_partner_list_partner_item_img img_full">
+                                <img src="/wp-content/uploads/2025/08/fqm-logo-rev.png" alt="">
+                            </div>
+                            <div class="cove_partner_list_partner_item_txt txt_center txt_16">Tư vấn thiết kế hạ tầng</div>
+                        </div>
+                        <div class="cove_partner_list_partner_item swiper-slide">
+                            <div class="cove_partner_list_partner_item_img img_full">
+                                <img src="/wp-content/uploads/2025/08/Logo-TTT.png" alt="">
+                            </div>
+                            <div class="cove_partner_list_partner_item_txt txt_center txt_16">Tư vấn thiết kế hạ tầng</div>
+                        </div>
+                        <div class="cove_partner_list_partner_item swiper-slide">
+                            <div class="cove_partner_list_partner_item_img img_full">
+                                <img src="/wp-content/uploads/2025/08/logo-nqh.png" alt="">
+                            </div>
+                            <div class="cove_partner_list_partner_item_txt txt_center txt_16">Tư vấn thiết kế hạ tầng</div>
+                        </div>
                     </div>
-                    <div class="cove_partner_list_partner_item_txt txt_center txt_16">Đối tác xây dựng</div>
                 </div>
-                <div class="cove_partner_list_partner_item">
-                    <div class="cove_partner_list_partner_item_img img_full">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/tu-van-quy-hoach.png" alt="">
-                    </div>
-                    <div class="cove_partner_list_partner_item_txt txt_center txt_16">Tư vấn quy hoạch cảnh quan
-                    </div>
-                </div>
-                <div class="cove_partner_list_partner_item">
-                    <div class="cove_partner_list_partner_item_img img_full">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/thiet-ke-kien-truc.png" alt="">
-                    </div>
-                    <div class="cove_partner_list_partner_item_txt txt_center txt_16">Thiết kế kiến trúc căn hộ
-                    </div>
-                </div>
-                <div class="cove_partner_list_partner_item">
-                    <div class="cove_partner_list_partner_item_img img_full">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/tu-van-thiet-ke-ha-tang.png" alt="">
-                    </div>
-                    <div class="cove_partner_list_partner_item_txt txt_center txt_16">Tư vấn thiết kế hạ tầng</div>
-                </div>
+                <div class="partner_button">
+            <div class="button_partner_swiper_prev partner_button_swiper_item img_full">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/icon_grayprev.svg" alt="" />
+            </div>
+            <div class="button_partner_swiper_next partner_button_swiper_item img_full">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/icon_graynext.svg" alt="" />
+            </div>
+          </div>
             </div>
         </div>
     </section>
@@ -855,7 +879,7 @@ get_header();
                         tính
                         chất minh họa, có thể điều chỉnh. Thông tin chính thức được căn cứ trên hợp đồng mua bán.
                     </div>
-                    <div class="cove_contact_des txt_center  txt_17">© 2025 Trellia Cove. All Rights Reserved.</div>
+                    <div class="cove_contact_des txt_center  txt_17">© 2025 Trellia Cove. All Rights Reserved. Made with heart by TQ Design</div>
                 </div>
             </div>
         </div>
@@ -890,13 +914,13 @@ get_header();
     <div class="news_popup_overlay"></div>
     <div class="news_popup_main">
         <div class="news_popup_inner">
-        <div class="news_popup_close">X</div>
-        <div class="news_popup_title  txt txt_50 txt_title">Trellia Cove Dấu Ấn Biệt Lập Giữa Lòng Đại Đô Thị Mizuki
-            Park</div>
-        <div class="news_popup_time txt txt_22">05/11/2024</div>
-        <div class="news_popup_content txt txt_18">
+            <div class="news_popup_close">X</div>
+            <div class="news_popup_title  txt txt_50 txt_title">Trellia Cove Dấu Ấn Biệt Lập Giữa Lòng Đại Đô Thị Mizuki
+                Park</div>
+            <div class="news_popup_time txt txt_22">05/11/2024</div>
+            <div class="news_popup_content txt txt_18">
+            </div>
         </div>
-    </div>
     </div>
 </div>
 </body>

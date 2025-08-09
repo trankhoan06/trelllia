@@ -1,0 +1,294 @@
+.estate_hero{
+    position: relative;
+}
+.estate_hero_txt{
+    position: absolute;
+    z-index: 5;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* content */
+.estate_content{
+    margin-top: 7.5rem;
+}
+.estate_intro_txt_logo{
+  width: 30rem;
+  margin-inline:auto ;
+}
+.estate_intro{
+  margin-top: 8rem;
+}
+.estate_intro_txt_des{
+  margin-top: 3.5rem;
+  margin-inline: 14.6rem;
+  margin-bottom: 3rem;
+  position: relative;
+    &::before{
+        content: "";
+        background: url(/assets/img/icon_txt1.png) no-repeat;
+        background-size: 100% 100%;
+        width: 10.2rem;
+        height: 8.2rem;
+        position: absolute;
+        opacity: .2;
+        left: -9rem;
+        top: -8rem;
+    }
+    &::after{
+        content: "";
+        background: url(/assets/img/icon_txt.png) no-repeat;
+        background-size: 100% 100%;
+        width: 10.2rem;
+        height: 8.2rem;
+        position: absolute;
+        right: -10.5rem;
+        bottom: -2.5rem;  
+        opacity: .2;
+    }
+}
+.estate_content_img{
+    grid-column: 1/7;
+    margin-right: -5rem;
+    border-radius: 0 2rem 2rem 0;
+    overflow: hidden;
+}
+.estate_content_info{
+    grid-column: 8/13;
+}
+.estate_content_inner{
+    align-items: center;
+    padding-block: 9.5rem;
+}
+.estate_content_info_title{
+    margin-bottom: 4rem;
+}
+.estate_content_info_des, .estate_content_info_subtitle{
+    margin-bottom: 1rem;
+}
+.des_spot{
+    padding-left: 1.9rem;
+    position: relative;
+    &::before{
+        position: absolute;
+        content: "";
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background-color: #A6CE39;
+        top: .7rem;
+        left: 0;
+    }
+}
+.estate_content_info1{
+    grid-column: 1/6;
+    &.gap{
+        margin-right: -3.5rem;
+    }
+}
+.estate_content_img1{
+    border-radius: 2rem 0 0 2rem;
+    overflow: hidden;
+    grid-column: 7/13;
+    margin-left: -5rem;
+    cursor: pointer;
+    position: relative;
+}
+.estate_button{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    inset: 50% 1rem 0;
+    z-index: 10;
+    pointer-events: none;
+}
+.estate_button_swiper_item{
+    pointer-events: auto;
+    width: 3rem;
+    height: 4rem;
+    padding: 1rem;
+    cursor: pointer;
+     transition: opacity .4s ease;
+     &.swiper-button-disabled{
+        opacity: .4;
+        cursor: unset;
+     }
+}
+@media screen and (max-width:991px) {
+    .estate_intro_txt_des{
+        margin-inline: 6rem;
+    }
+    .estate_content_img{
+        margin-right: 0;
+        grid-column: 1/13;
+    }
+    .estate_content_info{
+        margin-top: 4rem;
+        grid-column: 1/13;
+        margin-left: 0;
+    }
+     .estate_content_img1{
+        margin-left: 0;
+        grid-column: 1/13;
+        order: 1;
+    }
+    .estate_content_info1{
+        order: 2;
+        margin-top: 4rem;
+        grid-column: 1/13;
+        margin-right: 0 !important;
+    }
+    .estate_content_info_title{
+        margin-bottom: 3rem;
+    }
+    .estate_content_inner{
+        padding-block: 8.5rem;
+    }
+.estate_intro_txt_des{
+    &::after{
+        right: -9.5rem;
+    }
+}
+}
+@media screen and (max-width:767px){
+    .estate_intro_txt_des{
+        margin-inline: 0;
+        margin-top: 10rem;
+        &::before{
+            top: -7rem;
+            left: 0;
+            width: 7.2rem;
+            height: 6.2rem;
+        }
+        &::after{
+            bottom: -3rem;
+            right: .5rem;
+            width: 7.2rem;
+            height: 6.2rem;
+        } 
+    }
+    .estate_intro_txt_logo{
+        width: 17rem;
+    }
+    .estate_content_inner{
+        padding-block: 6rem;
+    }
+}
+/* logistics */
+.estate_logistics{
+    padding-top: 3.5rem;
+    padding-bottom: 10rem;
+}
+.estate_logistics_logo{
+    width: 22.5rem;
+    margin-inline: auto;
+}
+.estate_logistics_des{
+    margin-inline: auto;
+    max-width: 76rem;
+}
+.estate_logistics_list{
+    max-width: 140rem;
+    display: flex;
+    margin-inline: auto;
+    justify-content: space-between;
+}
+.estate_logistics_list_item{
+    max-width: 39rem;
+    width: 100%;
+    color: #fff;
+    background-color: #A6CE39;
+    border-radius: 1rem;
+    padding-block: 3rem;
+}
+.estate_logistics_list{
+    margin-top: 4rem;
+    margin-bottom: -6rem;
+    position: relative;
+    z-index: 1;
+}
+.estate_logistics_img{
+    margin-bottom: 10rem;
+}
+.estate_logistics_exper_item{
+    padding-block: 5rem;
+    border: 1px solid #DFECC1;
+    border-radius: 2rem;
+    background-color: #FCFFF6;
+}
+.estate_logistics_exper{
+    grid-template-columns: repeat(3, 1fr) !important;
+}
+.estate_logistics_exper_item_title{
+    color: #A6CE39;
+    margin-bottom: 1rem;
+}
+@media screen and (max-width:991px) {
+    .estate_logistics_des{
+        max-width: unset;
+        margin-inline: 5rem;
+    }
+    .estate_logistics_list_item{
+        padding-block: 2rem;
+        max-width: 22rem;
+    }
+    .estate_logistics_list_item_title {
+        font-size: 2.6rem;
+    }
+    .estate_logistics_list{
+        margin-inline: 2rem;
+    }
+    .estate_logistics_exper_item{
+        padding-block: 3rem;
+    }
+}
+@media screen and (max-width:767px){
+    .estate_logistics_list_item{
+        max-width: unset;
+        padding-bottom: 3rem;
+    }
+    .estate_logistics_list{
+        flex-direction: column;
+    }
+    .estate_logistics{
+        padding-top: 10.5rem;
+    }
+    .estate_logistics_logo {
+        width: 20rem;
+    }
+    .estate_logistics_des {
+        margin-inline: 2rem;
+    }
+    .estate_logistics_list{
+        row-gap: 4rem;
+        margin-bottom: 5rem;
+    }
+    .estate_logistics_img{
+        aspect-ratio: 440 / 256;
+        margin-bottom: 4rem;
+    }
+    .estate_logistics_exper{
+        gap: 2.5rem;
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-rows: repeat(2, 1fr) !important;
+    }   
+    .item1{
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+    .item3{
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+    .item2{
+        grid-column: 1/3;
+        grid-row: 2/3;
+    }
+    .estate_logistics_exper_item_title{
+        font-size: 4rem;
+    }    
+    .estate_logistics_exper_item {
+        padding-block: 2rem 1.5rem;
+    }
+}
